@@ -1,0 +1,25 @@
+# ITEMS
+
+item.thaumicapiculture.thaumium_scoop.name=Thaumium Scoop
+item.thaumicapiculture.void_scoop.name=Void Scoop
+item.thaumicapiculture.thaumium_grafter.name=Thaumium Grafter
+item.thaumicapiculture.void_grafter.name=Void Grafter
+
+# CREATIVE TABS
+
+itemGroup.thaumicapiculture=Thaumic Apiculture
+
+# RESEARCH
+
+research.BASEAPICULTURE.title=Thaumic Apiculture
+research.BASEAPICULTURE.text.stage.1=I've only just begun my exploration of Thaumaturgy, yet I'm already seeing ways it can be related to other fields. I'm sure numerous applications will reveal themselves in time.
+
+tc.research_category.THAUMICAPICULTURE=Thaumic Apiculture
+
+research.THAUMIUMSCOOP.title=Thaumium Scoop & Grafter
+research.THAUMIUMSCOOP.text.stage.1=The scoop and grafter are important tools for the aspiring forester, but their fragility makes them a nuisance to use. It shouldn't be difficult to apply some of my knowledge of Thaumaturgy and come up with something better.
+research.THAUMIUMSCOOP.text.stage.2=Using thaumium and enchanted fabric, I've created superior variants of the mundane scoop and grafter. They have double the durability of the original tools, and are slightly faster. Additionally, the magical nature of thaumium allows them to be enchanted, further improving their utility.
+
+research.VOIDSCOOP.title=Void Scoop & Grafter
+research.VOIDSCOOP.text.stage.1=Void metal's ability to repair itself has piqued my curiosity, as the low durability of scoops and grafters has been a thorn in my side for quite a while now. I'm sure it would be quite easy to construct them out of void metal - although it does seem like a bit of a waste of such an exotic material.
+research.VOIDSCOOP.text.stage.2=As expected, void metal was very easy to incorporate into the designs. The resulting tools are even weaker than mundane ones, but it hardly matters because they slowly repair themselves like other types of void metal equipment.<BR>Like their thaumium cousins, these scoops and grafters may be enchanted.

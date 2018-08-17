@@ -1,0 +1,95 @@
+buildscript {
+	repositories {
+		jcenter()
+		maven { url = 'http://files.minecraftforge.net/maven' }
+		maven { url 'https://plugins.gradle.org/m2/' }
+	}
+	dependencies {
+		classpath 'net.minecraftforge.gradle:ForgeGradle:2.3-SNAPSHOT'
+		classpath 'org.jetbrains.kotlin:kotlin-gradle-plugin:1.2.41'
+	}
+}
+
+apply plugin: 'net.minecraftforge.gradle.forge'
+apply plugin: 'org.jetbrains.kotlin.jvm'
+
+group = 'me.apemanzilla'
+version = '0.1.0'
+
+compileJava {
+	sourceCompatibility = targetCompatibility = '1.8'
+}
+
+minecraft {
+	version = '1.12.2-14.23.4.2705'
+	runDir = 'run'
+
+	mappings = 'snapshot_20171003'
+
+	replace("@VERSION@", project.version)
+}
+
+repositories {
+	jcenter()
+
+	// Forgelin
+	maven { url "http://maven.shadowfacts.net/" }
+
+	// Forestry
+	maven { url "http://maven.ic2.player.to/" }
+
+	// Thaumcraft, Baubles
+	maven { url "https://minecraft.curseforge.com/api/maven" }
+
+	// JEI
+	maven { url "http://dvs1.progwml6.com/files/maven" }
+}
+
+def forgelinVersion = '1.7.3'
+def thaumcraftVersion = '6.1.BETA22'
+def forestryVersion = '5.8.1.326'
+
+dependencies {
+	compile "net.shadowfacts:Forgelin:$forgelinVersion"
+
+	deobfCompile "thaumcraft:Thaumcraft:1.12.2:$thaumcraftVersion"
+
+	compileOnly "net.sengir.forestry:forestry_1.12.2:$forestryVersion:api"
+
+	// Mods that are required at runtime, or just useful for testing
+
+	runtime "net.sengir.forestry:forestry_1.12.2:$forestryVersion"
+
+	runtime "baubles:Baubles:1.12:1.5.2"
+
+	runtime "mezz.jei:jei_1.12.2:4.11.0.206"
+}
+
+processResources {
+	// ensure task is rerun when version changes
+	inputs.property 'version', project.version
+	inputs.property 'mcversion', project.minecraft.version
+
+	// GIMP images (exported as other formats, kept in repo for future modifications)
+	exclude '**/*.xcf'
+
+	from(sourceSets.main.resources.srcDirs) {
+		include 'mcmod.info'
+
+		expand 'version': project.version, 'mcversion': project.minecraft.version
+	}
+
+	from(sourceSets.main.resources.srcDirs) {
+		exclude 'mcmod.info'
+	}
+}
+
+runClient {
+	outputs.upToDateWhen { false }
+	args '--username', 'dev'
+}
+
+runServer {
+	outputs.upToDateWhen { false }
+	args 'nogui'
+}

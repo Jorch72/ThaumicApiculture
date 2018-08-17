@@ -1,0 +1,57 @@
+{
+	"entries": [
+		{
+			"key": "BASEAPICULTURE",
+			"name": "research.BASEAPICULTURE.title",
+			"icons": [ "forestry:bee_combs" ],
+			"category": "THAUMICAPICULTURE",
+			"meta": [ "ROUND", "SPIKY" ],
+			"parents": [ "FIRSTSTEPS" ],
+			"location": [ 0, 0 ],
+			"stages": [
+				{
+					"text": "research.BASEAPICULTURE.text.stage.1"
+				}
+			]
+		},
+		{
+			"key": "THAUMIUMSCOOP",
+			"name": "research.THAUMIUMSCOOP.title",
+			"icons": [ "thaumicapiculture:thaumium_scoop", "thaumicapiculture:thaumium_grafter" ],
+			"category": "THAUMICAPICULTURE",
+			"parents": [ "BASEAPICULTURE", "METALLURGY", "UNLOCKINFUSION" ],
+			"location": [ 0, 2 ],
+			"stages": [
+				{
+					"text": "research.THAUMIUMSCOOP.text.stage.1",
+					"required_knowledge": [ "OBSERVATION;ALCHEMY;1" ],
+					"required_item": [ "forestry:scoop", "forestry:grafter" ]
+				},
+				{
+					"text": "research.THAUMIUMSCOOP.text.stage.2",
+					"recipes": [ "thaumicapiculture:thaumium_scoop", "thaumicapiculture:thaumium_grafter" ]
+				}
+			]
+		},
+		{
+			"key": "VOIDSCOOP",
+			"name": "research.VOIDSCOOP.title",
+			"icons": [ "thaumicapiculture:void_scoop", "thaumicapiculture:void_grafter" ],
+			"category": "THAUMICAPICULTURE",
+			"parents": [ "THAUMIUMSCOOP", "BASEELDRITCH" ],
+			"location": [ 0, 4 ],
+			"meta": [ "HIDDEN" ],
+			"stages": [
+				{
+					"text": "research.VOIDSCOOP.text.stage.1",
+					"required_knowledge": [ "OBSERVATION;ELDRITCH;1" ],
+					"required_research": [ "f_MATVOID" ]
+				},
+				{
+					"text": "research.VOIDSCOOP.text.stage.2",
+					"recipes": [ "thaumicapiculture:void_scoop", "thaumicapiculture:void_grafter" ]
+				}
+			]
+		}
+	]
+}
