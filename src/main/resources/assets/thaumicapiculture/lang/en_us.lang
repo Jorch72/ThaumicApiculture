@@ -4,10 +4,21 @@ item.thaumicapiculture.thaumium_scoop.name=Thaumium Scoop
 item.thaumicapiculture.void_scoop.name=Void Scoop
 item.thaumicapiculture.thaumium_grafter.name=Thaumium Grafter
 item.thaumicapiculture.void_grafter.name=Void Grafter
+item.thaumicapiculture.silverwood_frame.name=Silverwood Frame
+item.thaumicapiculture.channeling_frame.name=Vis Frame
 
 # CREATIVE TABS
 
 itemGroup.thaumicapiculture=Thaumic Apiculture
+
+# BEE MODIFIERS
+thaumicapiculture.modifier.territory=Territory: %.2fx
+thaumicapiculture.modifier.lifespan=Lifespan: %.2fx
+thaumicapiculture.modifier.flowering=Pollination: %.2fx
+thaumicapiculture.modifier.production=Production: %.2fx
+thaumicapiculture.modifier.genetic_decay=Genetic Decay: %.2fx
+thaumicapiculture.modifier.mutation=Mutation: %.2fx
+thaumicapiculture.modifier.viscost=Uses %.2f vis per cycle
 
 # RESEARCH
 
@@ -27,3 +38,15 @@ research.VOIDSCOOP.text.stage.2=As expected, void metal was very easy to incorpo
 research.APATITEENRICHMENT.title=Apatite Enrichment
 research.APATITEENRICHMENT.text.stage.1=Apatite is required to produce fertilizer to run automated farms, but after my success purifying other ores, I feel that the process of producing fertilizer could also be improved.
 research.APATITEENRICHMENT.text.stage.2=By mixing apatite with various essentia, I've found success creating more fertilizer from less apatite. While apatite is by no means a scarce resource to begin with, this could be helpful anyways.
+
+research.SILVERWOODFRAME.title=Silverwood Frame
+research.SILVERWOODFRAME.text.stage.1=Even frames constructed of mundane materials like string and wood can drastically improve the productivity of bees, so why not see if they can be improved upon by adding a touch of magic?
+research.SILVERWOODFRAME.text.stage.2=Unfortunately, it seems that silverwood and enchanted fabric alone aren't enough. The resulting frame works well, but it's only marginally superior to mundane ones.<BR>However, there is a bright side. I believe that silverwood's affinity for magic and innate connection to the aura will make it a good base for other magical frames. I have a few ideas already: further experimentation is necessary.
+
+research.CHANNELINGFRAME.title=Vis Frame
+research.CHANNELINGFRAME.text.stage.1=Channeling a small amount of vis through a silverwood frame could improve its results. There's only one way to find out!
+research.CHANNELINGFRAME.text.stage.2=Attaching a vis resonator to a silverwood frame, I've found moderate improvements to its stats at a cost of a low amount of vis each cycle. However, while these improvements are small, they quickly add up when using multiple frames. Unfortunately, the same is true for the vis cost: Overusing these frames could quickly drain the local aura.
+
+# THEORYCRAFTING
+thaumicapiculture.card.observebees.name=Observe Bees
+thaumicapiculture.card.observebees.text=You carefully observe the behavior of the bees, noting any patterns in their interactions with the environment. Gain 25 progress in Thaumic Apiculture.

@@ -1,16 +1,18 @@
 package me.apemanzilla.thaumicapiculture.recipes
 
+import forestry.core.ModuleCore
 import me.apemanzilla.thaumicapiculture.ThaumicApiculture.MODID
 import me.apemanzilla.thaumicapiculture.items.ModItems
-import net.minecraft.item.Item
 import net.minecraft.item.ItemStack
 import net.minecraft.util.ResourceLocation
 import thaumcraft.api.ThaumcraftApi.addArcaneCraftingRecipe
 import thaumcraft.api.ThaumcraftApi.addCrucibleRecipe
 import thaumcraft.api.aspects.Aspect.*
 import thaumcraft.api.aspects.AspectList
+import thaumcraft.api.blocks.BlocksTC
 import thaumcraft.api.crafting.CrucibleRecipe
 import thaumcraft.api.crafting.ShapedArcaneRecipe
+import thaumcraft.api.crafting.ShapelessArcaneRecipe
 import thaumcraft.api.items.ItemsTC
 
 object Recipes {
@@ -51,11 +53,24 @@ object Recipes {
 				"S  ",
 				'I', "ingotVoid", 'S', "stickWood"
 		))
+
+		addArcaneCraftingRecipe(ModItems.silverwood_frame.registryName, ShapedArcaneRecipe(
+				null, "SILVERWOODFRAME", 25, AspectList().add(AIR, 1).add(WATER, 1), ModItems.silverwood_frame,
+				"SSS",
+				"SFS",
+				"SSS",
+				'S', ItemStack(BlocksTC.plankSilverwood), 'F', ItemStack(ItemsTC.fabric)
+		))
+
+		addArcaneCraftingRecipe(ModItems.channeling_frame.registryName, ShapelessArcaneRecipe(
+				null, "CHANNELINGFRAME", 25, AspectList().add(ORDER, 1), ModItems.channeling_frame,
+				ItemStack(ItemsTC.visResonator), ItemStack(ModItems.silverwood_frame)
+		))
 	}
 
 	fun registerCrucibleRecipes() {
-		val apatite = Item.getByNameOrId("forestry:apatite")!!
-		val fertilizer = Item.getByNameOrId("forestry:fertilizer_compound")!!
+		val apatite = ModuleCore.items!!.apatite
+		val fertilizer = ModuleCore.items!!.fertilizerCompound
 
 		addCrucibleRecipe(ResourceLocation(MODID, "efficient_fertilizer"), CrucibleRecipe(
 				"APATITEENRICHMENT", ItemStack(fertilizer, 20), ItemStack(apatite, 1),

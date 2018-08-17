@@ -4,6 +4,8 @@ import me.apemanzilla.thaumicapiculture.ThaumicApiculture
 import me.apemanzilla.thaumicapiculture.ThaumicApiculture.MODID
 import me.apemanzilla.thaumicapiculture.items.ModItems
 import me.apemanzilla.thaumicapiculture.recipes.Recipes
+import me.apemanzilla.thaumicapiculture.research.BeeHouseTheorycraftAid
+import me.apemanzilla.thaumicapiculture.research.CardObserveBees
 import net.minecraft.item.Item
 import net.minecraft.util.ResourceLocation
 import net.minecraftforge.common.MinecraftForge
@@ -14,8 +16,10 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent
 import thaumcraft.api.ThaumcraftApi
 import thaumcraft.api.aspects.Aspect
+import thaumcraft.api.aspects.Aspect.*
 import thaumcraft.api.aspects.AspectList
 import thaumcraft.api.research.ResearchCategories
+import thaumcraft.api.research.theorycraft.TheorycraftManager
 
 open class CommonProxy {
 	init {
@@ -30,13 +34,7 @@ open class CommonProxy {
 		ResearchCategories.registerCategory(
 				"THAUMICAPICULTURE",
 				null, // no previous research needed to discover this category
-				AspectList().apply {
-					aspects[Aspect.LIFE] = 10
-					aspects[Aspect.AIR] = 10
-					aspects[Aspect.PLANT] = 5
-					aspects[Aspect.AURA] = 10
-					aspects[Aspect.BEAST] = 5
-				},
+				AspectList().add(LIFE, 10).add(BEAST, 5).add(AIR, 5).add(PLANT, 5),
 				ResourceLocation(MODID, "textures/items/thaumium_scoop.png"),
 				ResourceLocation("thaumcraft", "textures/gui/gui_research_back_1.jpg"),
 				ResourceLocation("thaumcraft", "textures/gui/gui_research_back_over.png")
@@ -46,7 +44,10 @@ open class CommonProxy {
 		Recipes.registerAll()
 	}
 
-	open fun postInit(e: FMLPostInitializationEvent) {}
+	open fun postInit(e: FMLPostInitializationEvent) {
+		TheorycraftManager.registerCard(CardObserveBees::class.java)
+		TheorycraftManager.registerAid(BeeHouseTheorycraftAid)
+	}
 
 	companion object CommonEvents {
 		@SubscribeEvent

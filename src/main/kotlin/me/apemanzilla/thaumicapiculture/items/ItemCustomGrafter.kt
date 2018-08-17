@@ -5,7 +5,6 @@ import net.minecraft.block.BlockLeaves
 import net.minecraft.block.material.Material
 import net.minecraft.block.state.IBlockState
 import net.minecraft.enchantment.Enchantment
-import net.minecraft.entity.Entity
 import net.minecraft.entity.EntityLivingBase
 import net.minecraft.entity.player.EntityPlayer
 import net.minecraft.init.Enchantments
@@ -13,11 +12,10 @@ import net.minecraft.item.Item
 import net.minecraft.item.ItemStack
 import net.minecraft.util.math.BlockPos
 import net.minecraft.world.World
-import thaumcraft.api.ThaumcraftMaterials.TOOLMAT_VOID
 import thaumcraft.api.items.IWarpingGear
 
 // TODO: figure out why this doesn't work for non-forestry leaves
-open class CustomGrafter(id: String, material: Item.ToolMaterial, durability: Int) : BasicTool(id, material, durability), IToolGrafter, IWarpingGear {
+open class ItemCustomGrafter(id: String, material: Item.ToolMaterial, durability: Int) : ItemToolBase(id, material, durability), IToolGrafter, IWarpingGear {
 	companion object {
 		val allowedEnchants = setOf(
 				Enchantments.EFFICIENCY,

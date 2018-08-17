@@ -54,11 +54,9 @@ dependencies {
 
 	deobfCompile "thaumcraft:Thaumcraft:1.12.2:$thaumcraftVersion"
 
-	compileOnly "net.sengir.forestry:forestry_1.12.2:$forestryVersion:api"
+	compile "net.sengir.forestry:forestry_1.12.2:$forestryVersion"
 
 	// Mods that are required at runtime, or just useful for testing
-
-	runtime "net.sengir.forestry:forestry_1.12.2:$forestryVersion"
 
 	runtime "baubles:Baubles:1.12:1.5.2"
 
@@ -92,4 +90,11 @@ runClient {
 runServer {
 	outputs.upToDateWhen { false }
 	args 'nogui'
+}
+
+tasks.withType(JavaExec) {
+	if (System.getProperty('DEBUG', 'false') == 'true') {
+		debug true
+		jvmArgs "-agentlib:jdwp=transport=dt_socket,server=y,suspend=y,address=5005"
+	}
 }

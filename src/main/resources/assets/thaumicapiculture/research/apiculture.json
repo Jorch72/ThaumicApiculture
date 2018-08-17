@@ -24,7 +24,7 @@
 			"stages": [
 				{
 					"text": "research.THAUMIUMSCOOP.text.stage.1",
-					"required_knowledge": [ "OBSERVATION;ALCHEMY;1" ],
+					"required_knowledge": [ "OBSERVATION;THAUMICAPICULTURE;1", "OBSERVATION;ALCHEMY;1" ],
 					"required_item": [ "forestry:scoop", "forestry:grafter" ]
 				},
 				{
@@ -44,7 +44,7 @@
 			"stages": [
 				{
 					"text": "research.VOIDSCOOP.text.stage.1",
-					"required_knowledge": [ "OBSERVATION;ELDRITCH;1" ],
+					"required_knowledge": [ "OBSERVATION;THAUMICAPICULTURE;1", "OBSERVATION;ELDRITCH;1" ],
 					"required_research": [ "f_MATVOID" ]
 				},
 				{
@@ -63,12 +63,50 @@
 			"stages": [
 				{
 					"text": "research.APATITEENRICHMENT.text.stage.1",
-					"required_knowledge": [ "THEORY;ALCHEMY;1" ],
+					"required_knowledge": [ "OBSERVATION;THAUMICAPICULTURE;1", "THEORY;ALCHEMY;1" ],
 					"required_item": [ "forestry:apatite" ]
 				},
 				{
 					"text": "research.APATITEENRICHMENT.text.stage.2",
 					"recipes": [ "thaumicapiculture:efficient_fertilizer" ]
+				}
+			]
+		},
+		{
+			"key": "SILVERWOODFRAME",
+			"name": "research.SILVERWOODFRAME.title",
+			"icons": [ "thaumicapiculture:silverwood_frame" ],
+			"category": "THAUMICAPICULTURE",
+			"parents": [ "BASEAPICULTURE", "!PLANTWOOD", "UNLOCKINFUSION" ],
+			"location": [ 2, 2 ],
+			"stages": [
+				{
+					"text": "research.SILVERWOODFRAME.text.stage.1",
+					"required_knowledge": [ "THEORY;THAUMICAPICULTURE;1" ],
+					"required_item": [ "thaumcraft:plank_silverwood", "thaumcraft:fabric", "forestry:frame_untreated" ]
+				},
+				{
+					"text": "research.SILVERWOODFRAME.text.stage.2",
+					"recipes": [ "thaumicapiculture:silverwood_frame" ]
+				}
+			]
+		},
+		{
+			"key": "CHANNELINGFRAME",
+			"name": "research.CHANNELINGFRAME.title",
+			"icons": [ "thaumicapiculture:channeling_frame" ],
+			"category": "THAUMICAPICULTURE",
+			"parents": [ "SILVERWOODFRAME", "BASEAUROMANCY@1" ],
+			"location": [ 4, 4 ],
+			"stages": [
+				{
+					"text": "research.CHANNELINGFRAME.text.stage.1",
+					"required_knowledge": [ "THEORY;THAUMICAPICULTURE;1", "THEORY;AUROMANCY;1" ],
+					"required_craft": [ "thaumcraft:vis_resonator" ]
+				},
+				{
+					"text": "research.CHANNELINGFRAME.text.stage.2",
+					"recipes": [ "thaumicapiculture:channeling_frame" ]
 				}
 			]
 		}
