@@ -42,7 +42,8 @@ open class CommonProxy {
 				ResourceLocation("thaumcraft", "textures/gui/gui_research_back_over.png")
 		)
 		ThaumcraftApi.registerResearchLocation(ResourceLocation(MODID, "research/apiculture"))
-		Recipes.registerArcaneRecipes()
+
+		Recipes.registerAll()
 	}
 
 	open fun postInit(e: FMLPostInitializationEvent) {}

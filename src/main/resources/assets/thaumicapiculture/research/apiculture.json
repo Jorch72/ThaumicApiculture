@@ -52,6 +52,25 @@
 					"recipes": [ "thaumicapiculture:void_scoop", "thaumicapiculture:void_grafter" ]
 				}
 			]
+		},
+		{
+			"key": "APATITEENRICHMENT",
+			"name": "research.APATITEENRICHMENT.title",
+			"icons": [ "forestry:fertilizer_compound" ],
+			"category": "THAUMICAPICULTURE",
+			"parents": [ "BASEAPICULTURE", "METALPURIFICATION" ],
+			"location": [ -2, 0 ],
+			"stages": [
+				{
+					"text": "research.APATITEENRICHMENT.text.stage.1",
+					"required_knowledge": [ "THEORY;ALCHEMY;1" ],
+					"required_item": [ "forestry:apatite" ]
+				},
+				{
+					"text": "research.APATITEENRICHMENT.text.stage.2",
+					"recipes": [ "thaumicapiculture:efficient_fertilizer" ]
+				}
+			]
 		}
 	]
 }

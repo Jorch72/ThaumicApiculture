@@ -23,3 +23,7 @@ research.THAUMIUMSCOOP.text.stage.2=Using thaumium and enchanted fabric, I've cr
 research.VOIDSCOOP.title=Void Scoop & Grafter
 research.VOIDSCOOP.text.stage.1=Void metal's ability to repair itself has piqued my curiosity, as the low durability of scoops and grafters has been a thorn in my side for quite a while now. I'm sure it would be quite easy to construct them out of void metal - although it does seem like a bit of a waste of such an exotic material.
 research.VOIDSCOOP.text.stage.2=As expected, void metal was very easy to incorporate into the designs. The resulting tools are even weaker than mundane ones, but it hardly matters because they slowly repair themselves like other types of void metal equipment.<BR>Like their thaumium cousins, these scoops and grafters may be enchanted.
+
+research.APATITEENRICHMENT.title=Apatite Enrichment
+research.APATITEENRICHMENT.text.stage.1=Apatite is required to produce fertilizer to run automated farms, but after my success purifying other ores, I feel that the process of producing fertilizer could also be improved.
+research.APATITEENRICHMENT.text.stage.2=By mixing apatite with various essentia, I've found success creating more fertilizer from less apatite. While apatite is by no means a scarce resource to begin with, this could be helpful anyways.
