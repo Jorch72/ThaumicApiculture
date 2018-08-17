@@ -5,7 +5,7 @@ item.thaumicapiculture.void_scoop.name=Void Scoop
 item.thaumicapiculture.thaumium_grafter.name=Thaumium Grafter
 item.thaumicapiculture.void_grafter.name=Void Grafter
 item.thaumicapiculture.silverwood_frame.name=Silverwood Frame
-item.thaumicapiculture.channeling_frame.name=Vis Frame
+item.thaumicapiculture.channeling_frame.name=Resonating Frame
 
 # CREATIVE TABS
 
@@ -43,9 +43,10 @@ research.SILVERWOODFRAME.title=Silverwood Frame
 research.SILVERWOODFRAME.text.stage.1=Even frames constructed of mundane materials like string and wood can drastically improve the productivity of bees, so why not see if they can be improved upon by adding a touch of magic?
 research.SILVERWOODFRAME.text.stage.2=Unfortunately, it seems that silverwood and enchanted fabric alone aren't enough. The resulting frame works well, but it's only marginally superior to mundane ones.<BR>However, there is a bright side. I believe that silverwood's affinity for magic and innate connection to the aura will make it a good base for other magical frames. I have a few ideas already: further experimentation is necessary.
 
-research.CHANNELINGFRAME.title=Vis Frame
+research.CHANNELINGFRAME.title=Resonating Frame
 research.CHANNELINGFRAME.text.stage.1=Channeling a small amount of vis through a silverwood frame could improve its results. There's only one way to find out!
-research.CHANNELINGFRAME.text.stage.2=Attaching a vis resonator to a silverwood frame, I've found moderate improvements to its stats at a cost of a low amount of vis each cycle. However, while these improvements are small, they quickly add up when using multiple frames. Unfortunately, the same is true for the vis cost: Overusing these frames could quickly drain the local aura.
+research.CHANNELINGFRAME.text.stage.2=It seems that traditional arcane crafting isn't enough. The vis resonator allows the frame to drain vis, but it remains in an unfocused and chaotic state. Maybe infusion would help?
+research.CHANNELINGFRAME.text.stage.3=Infusing a vis resonator with a silverwood frame, I've achieved moderate improvements to its stats at the cost of a low amount of vis each cycle. However, while these improvements are small, they quickly add up when using multiple frames. Unfortunately, the same is true for the vis cost: Overusing these frames could quickly drain the local aura, or worse.
 
 # THEORYCRAFTING
 thaumicapiculture.card.observebees.name=Observe Bees

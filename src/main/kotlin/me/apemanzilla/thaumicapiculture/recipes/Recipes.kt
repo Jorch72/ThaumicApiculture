@@ -5,12 +5,14 @@ import me.apemanzilla.thaumicapiculture.ThaumicApiculture.MODID
 import me.apemanzilla.thaumicapiculture.items.ModItems
 import net.minecraft.item.ItemStack
 import net.minecraft.util.ResourceLocation
-import thaumcraft.api.ThaumcraftApi.addArcaneCraftingRecipe
-import thaumcraft.api.ThaumcraftApi.addCrucibleRecipe
+import thaumcraft.api.ThaumcraftApi.*
+import thaumcraft.api.ThaumcraftApiHelper
+import thaumcraft.api.ThaumcraftApiHelper.makeCrystal
 import thaumcraft.api.aspects.Aspect.*
 import thaumcraft.api.aspects.AspectList
 import thaumcraft.api.blocks.BlocksTC
 import thaumcraft.api.crafting.CrucibleRecipe
+import thaumcraft.api.crafting.InfusionRecipe
 import thaumcraft.api.crafting.ShapedArcaneRecipe
 import thaumcraft.api.crafting.ShapelessArcaneRecipe
 import thaumcraft.api.items.ItemsTC
@@ -19,6 +21,7 @@ object Recipes {
 	fun registerAll() {
 		registerArcaneRecipes()
 		registerCrucibleRecipes()
+		registerInfusionRecipes()
 	}
 
 	fun registerArcaneRecipes() {
@@ -61,11 +64,6 @@ object Recipes {
 				"SSS",
 				'S', ItemStack(BlocksTC.plankSilverwood), 'F', ItemStack(ItemsTC.fabric)
 		))
-
-		addArcaneCraftingRecipe(ModItems.channeling_frame.registryName, ShapelessArcaneRecipe(
-				null, "CHANNELINGFRAME", 25, AspectList().add(ORDER, 1), ModItems.channeling_frame,
-				ItemStack(ItemsTC.visResonator), ItemStack(ModItems.silverwood_frame)
-		))
 	}
 
 	fun registerCrucibleRecipes() {
@@ -75,6 +73,14 @@ object Recipes {
 		addCrucibleRecipe(ResourceLocation(MODID, "efficient_fertilizer"), CrucibleRecipe(
 				"APATITEENRICHMENT", ItemStack(fertilizer, 20), ItemStack(apatite, 1),
 				AspectList().add(PLANT, 10).add(LIFE, 10).add(ORDER, 5)
+		))
+	}
+
+	fun registerInfusionRecipes() {
+		addInfusionCraftingRecipe(ModItems.channeling_frame.registryName, InfusionRecipe(
+				"CHANNELINGFRAME", ItemStack(ModItems.channeling_frame), 1,
+				AspectList().add(ORDER, 10).add(AURA, 10).add(ENERGY, 20), ItemStack(ModItems.silverwood_frame),
+				makeCrystal(BEAST), ItemsTC.visResonator
 		))
 	}
 }

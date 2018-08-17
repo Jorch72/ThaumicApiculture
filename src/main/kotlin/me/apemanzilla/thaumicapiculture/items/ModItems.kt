@@ -31,7 +31,7 @@ object ModItems {
 				lifespan = 1.25f,
 				geneticDecay = 0.3f,
 				production = 2.25f
-		), visCost = 2f)
+		), visCost = 1.5f)
 	}
 
 	fun registerItems(e: RegistryEvent.Register<Item>) {

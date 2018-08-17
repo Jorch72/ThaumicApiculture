@@ -101,11 +101,16 @@
 			"stages": [
 				{
 					"text": "research.CHANNELINGFRAME.text.stage.1",
-					"required_knowledge": [ "THEORY;THAUMICAPICULTURE;1", "THEORY;AUROMANCY;1" ],
+					"required_knowledge": [ "THEORY;THAUMICAPICULTURE;1", "OBSERVATION;AUROMANCY;1" ],
 					"required_craft": [ "thaumcraft:vis_resonator" ]
 				},
 				{
 					"text": "research.CHANNELINGFRAME.text.stage.2",
+					"required_knowledge": [ "THEORY;INFUSION;1" ],
+					"required_research": [ "INFUSION" ]
+				},
+				{
+					"text": "research.CHANNELINGFRAME.text.stage.3",
 					"recipes": [ "thaumicapiculture:channeling_frame" ]
 				}
 			]
