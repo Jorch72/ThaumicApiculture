@@ -20,7 +20,8 @@
 			"icons": [ "thaumicapiculture:thaumium_scoop", "thaumicapiculture:thaumium_grafter" ],
 			"category": "THAUMICAPICULTURE",
 			"parents": [ "BASEAPICULTURE", "METALLURGY", "UNLOCKINFUSION" ],
-			"location": [ 0, 2 ],
+			"location": [ -1, 2 ],
+			"meta": [ "REVERSE" ],
 			"stages": [
 				{
 					"text": "research.THAUMIUMSCOOP.text.stage.1",
@@ -39,12 +40,12 @@
 			"icons": [ "thaumicapiculture:void_scoop", "thaumicapiculture:void_grafter" ],
 			"category": "THAUMICAPICULTURE",
 			"parents": [ "THAUMIUMSCOOP", "BASEELDRITCH" ],
-			"location": [ 0, 4 ],
+			"location": [ -3, 2 ],
 			"meta": [ "HIDDEN" ],
 			"stages": [
 				{
 					"text": "research.VOIDSCOOP.text.stage.1",
-					"required_knowledge": [ "OBSERVATION;THAUMICAPICULTURE;1", "OBSERVATION;ELDRITCH;1" ],
+					"required_knowledge": [ "THEORY;THAUMICAPICULTURE;1", "OBSERVATION;ELDRITCH;1" ],
 					"required_research": [ "f_MATVOID" ]
 				},
 				{
@@ -73,45 +74,90 @@
 			]
 		},
 		{
-			"key": "SILVERWOODFRAME",
-			"name": "research.SILVERWOODFRAME.title",
-			"icons": [ "thaumicapiculture:silverwood_frame" ],
+			"key": "MAGICFRAMES",
+			"name": "research.MAGICFRAMES.title",
+			"icons": [ "thaumicapiculture:silverwood_frame", "thaumicapiculture:greatwood_frame" ],
 			"category": "THAUMICAPICULTURE",
 			"parents": [ "BASEAPICULTURE", "!PLANTWOOD", "UNLOCKINFUSION" ],
-			"location": [ 2, 2 ],
+			"location": [ 1, 2 ],
+			"meta": [ "REVERSE" ],
 			"stages": [
 				{
-					"text": "research.SILVERWOODFRAME.text.stage.1",
+					"text": "research.MAGICFRAMES.text.stage.1",
 					"required_knowledge": [ "THEORY;THAUMICAPICULTURE;1" ],
-					"required_item": [ "thaumcraft:plank_silverwood", "thaumcraft:fabric", "forestry:frame_untreated" ]
+					"required_item": [ "thaumcraft:plank_silverwood", "thaumcraft:plank_greatwood", "forestry:frame_untreated" ]
 				},
 				{
-					"text": "research.SILVERWOODFRAME.text.stage.2",
-					"recipes": [ "thaumicapiculture:silverwood_frame" ]
+					"text": "research.MAGICFRAMES.text.stage.2",
+					"recipes": [ "thaumicapiculture:silverwood_frame", "thaumicapiculture:greatwood_frame" ]
 				}
 			]
 		},
 		{
-			"key": "CHANNELINGFRAME",
-			"name": "research.CHANNELINGFRAME.title",
-			"icons": [ "thaumicapiculture:channeling_frame" ],
+			"key": "ENERGIZINGFRAME",
+			"name": "research.ENERGIZINGFRAME.title",
+			"icons": [ "thaumicapiculture:energizing_frame" ],
 			"category": "THAUMICAPICULTURE",
-			"parents": [ "SILVERWOODFRAME", "BASEAUROMANCY@1" ],
-			"location": [ 4, 4 ],
+			"parents": [ "MAGICFRAMES", "INFUSION" ],
+			"location": [ 3, 0 ],
 			"stages": [
 				{
-					"text": "research.CHANNELINGFRAME.text.stage.1",
-					"required_knowledge": [ "THEORY;THAUMICAPICULTURE;1", "OBSERVATION;AUROMANCY;1" ],
-					"required_craft": [ "thaumcraft:vis_resonator" ]
+					"text": "research.ENERGIZINGFRAME.text.stage.1",
+					"required_knowledge": [ "THEORY;THAUMICAPICULTURE;1", "THEORY;INFUSION;1" ],
+					"required_craft": [ "thaumicapiculture:greatwood_frame" ]
 				},
 				{
-					"text": "research.CHANNELINGFRAME.text.stage.2",
-					"required_knowledge": [ "THEORY;INFUSION;1" ],
-					"required_research": [ "INFUSION" ]
+					"text": "research.ENERGIZINGFRAME.text.stage.2",
+					"recipes": [ "thaumicapiculture:energizing_frame" ]
+				}
+			]
+		},
+		{
+			"key": "PURIFYINGFRAME",
+			"name": "research.PURIFYINGFRAME.title",
+			"icons": [ "thaumicapiculture:purifying_frame" ],
+			"category": "THAUMICAPICULTURE",
+			"parents": [ "MAGICFRAMES", "VERDANTCHARMS" ],
+			"location": [ 5, 0 ],
+			"stages": [
+				{
+					"text": "research.PURIFYINGFRAME.text.stage.1",
+					"required_knowledge": [ "THEORY;THAUMICAPICULTURE;1", "THEORY;INFUSION;1" ],
+					"required_craft": [ "thaumic_apiculture:silverwood_frame" ]
 				},
 				{
-					"text": "research.CHANNELINGFRAME.text.stage.3",
-					"recipes": [ "thaumicapiculture:channeling_frame" ]
+					"text": "research.PURIFYINGFRAME.text.stage.2",
+					"recipes": [ "thaumicapiculture:purifying_frame" ]
+				}
+			]
+		},
+		{
+			"key": "DEATHFRAME",
+			"name": "research.DEATHFRAME.title",
+			"icons": [ "thaumicapiculture:death_frame" ],
+			"category": "THAUMICAPICULTURE",
+			"parents": [ "MAGICFRAMES", "LIQUIDDEATH" ],
+			"location": [ 7, 0 ],
+			"stages": [
+				{
+					"text": "research.DEATHFRAME.text.stage.1",
+					"required_knowledge": [ "THEORY;THAUMICAPICULTURE;1", "THEORY;INFUSION;1" ],
+					"required_item": [ "thaumicapiculture:greatwood_frame" ],
+					"required_craft": [ "forge:bucketfilled;1;0;{FluidName:'liquid_death',Amount:1000}" ],
+					"warp": 2
+				},
+				{
+					"text": "research.DEATHFRAME.text.stage.2",
+					"required_research": [ "METALLURGY" ]
+				},
+				{
+					"text": "research.DEATHFRAME.text.stage.3",
+					"required_knowledge": [ "OBSERVATION;INFUSION;1", "THEORY;ALCHEMY;1" ],
+					"required_item": [ "thaumcraft:plate;1;2", "thaumicapiculture:greatwood_frame" ]
+				},
+				{
+					"text": "research.DEATHFRAME.text.stage.4",
+					"recipes": [ "thaumicapiculture:death_frame" ]
 				}
 			]
 		}

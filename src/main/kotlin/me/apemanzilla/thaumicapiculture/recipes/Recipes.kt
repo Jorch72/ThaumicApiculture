@@ -1,13 +1,19 @@
 package me.apemanzilla.thaumicapiculture.recipes
 
+import forestry.apiculture.ModuleApiculture
 import forestry.core.ModuleCore
 import me.apemanzilla.thaumicapiculture.ThaumicApiculture.MODID
 import me.apemanzilla.thaumicapiculture.items.ModItems
+import net.minecraft.init.Items
 import net.minecraft.item.ItemStack
+import net.minecraft.nbt.NBTTagCompound
 import net.minecraft.util.ResourceLocation
+import net.minecraftforge.fluids.FluidStack
+import net.minecraftforge.fluids.FluidUtil
 import thaumcraft.api.ThaumcraftApi.*
 import thaumcraft.api.ThaumcraftApiHelper
 import thaumcraft.api.ThaumcraftApiHelper.makeCrystal
+import thaumcraft.api.aspects.Aspect
 import thaumcraft.api.aspects.Aspect.*
 import thaumcraft.api.aspects.AspectList
 import thaumcraft.api.blocks.BlocksTC
@@ -16,6 +22,8 @@ import thaumcraft.api.crafting.InfusionRecipe
 import thaumcraft.api.crafting.ShapedArcaneRecipe
 import thaumcraft.api.crafting.ShapelessArcaneRecipe
 import thaumcraft.api.items.ItemsTC
+import thaumcraft.common.config.ConfigBlocks
+import thaumcraft.common.config.ConfigBlocks.*
 
 object Recipes {
 	fun registerAll() {
@@ -26,7 +34,7 @@ object Recipes {
 
 	fun registerArcaneRecipes() {
 		addArcaneCraftingRecipe(ModItems.thaumium_scoop.registryName, ShapedArcaneRecipe(
-				null, "THAUMIUMSCOOP", 20, AspectList(), ModItems.thaumium_scoop,
+				null, "THAUMIUMSCOOP@2", 20, AspectList(), ModItems.thaumium_scoop,
 				"NFN",
 				"NIN",
 				" N ",
@@ -34,7 +42,7 @@ object Recipes {
 		))
 
 		addArcaneCraftingRecipe(ModItems.thaumium_grafter.registryName, ShapedArcaneRecipe(
-				null, "THAUMIUMSCOOP", 20, AspectList(), ModItems.thaumium_grafter,
+				null, "THAUMIUMSCOOP@2", 20, AspectList(), ModItems.thaumium_grafter,
 				"  I",
 				" S ",
 				"S  ",
@@ -42,7 +50,7 @@ object Recipes {
 		))
 
 		addArcaneCraftingRecipe(ModItems.void_scoop.registryName, ShapedArcaneRecipe(
-				null, "VOIDSCOOP", 50, AspectList().add(ORDER, 1), ModItems.void_scoop,
+				null, "VOIDSCOOP@2", 50, AspectList().add(ORDER, 1), ModItems.void_scoop,
 				"NFN",
 				"NIN",
 				" N ",
@@ -50,7 +58,7 @@ object Recipes {
 		))
 
 		addArcaneCraftingRecipe(ModItems.void_grafter.registryName, ShapedArcaneRecipe(
-				null, "VOIDSCOOP", 50, AspectList().add(ORDER, 1), ModItems.void_grafter,
+				null, "VOIDSCOOP@2", 50, AspectList().add(ORDER, 1), ModItems.void_grafter,
 				"  I",
 				" S ",
 				"S  ",
@@ -58,29 +66,54 @@ object Recipes {
 		))
 
 		addArcaneCraftingRecipe(ModItems.silverwood_frame.registryName, ShapedArcaneRecipe(
-				null, "SILVERWOODFRAME", 25, AspectList().add(AIR, 1).add(WATER, 1), ModItems.silverwood_frame,
+				null, "MAGICFRAMES@2", 25, AspectList().add(AIR, 1).add(ORDER, 1), ModItems.silverwood_frame,
 				"SSS",
 				"SFS",
 				"SSS",
 				'S', ItemStack(BlocksTC.plankSilverwood), 'F', ItemStack(ItemsTC.fabric)
 		))
+
+		addArcaneCraftingRecipe(ModItems.greatwood_frame.registryName, ShapedArcaneRecipe(
+				null, "MAGICFRAMES@2", 25, AspectList().add(AIR, 1).add(WATER, 1), ModItems.greatwood_frame,
+				"GGG",
+				"GFG",
+				"GGG",
+				'G', ItemStack(BlocksTC.plankGreatwood), 'F', ItemStack(ItemsTC.fabric)
+		))
 	}
 
 	fun registerCrucibleRecipes() {
-		val apatite = ModuleCore.items!!.apatite
-		val fertilizer = ModuleCore.items!!.fertilizerCompound
+		val apatite = ModuleCore.getItems().apatite
+		val fertilizer = ModuleCore.getItems().fertilizerCompound
 
 		addCrucibleRecipe(ResourceLocation(MODID, "efficient_fertilizer"), CrucibleRecipe(
-				"APATITEENRICHMENT", ItemStack(fertilizer, 20), ItemStack(apatite, 1),
+				"APATITEENRICHMENT@2", ItemStack(fertilizer, 20), ItemStack(apatite),
 				AspectList().add(PLANT, 10).add(LIFE, 10).add(ORDER, 5)
 		))
 	}
 
 	fun registerInfusionRecipes() {
-		addInfusionCraftingRecipe(ModItems.channeling_frame.registryName, InfusionRecipe(
-				"CHANNELINGFRAME", ItemStack(ModItems.channeling_frame), 1,
-				AspectList().add(ORDER, 10).add(AURA, 10).add(ENERGY, 20), ItemStack(ModItems.silverwood_frame),
-				makeCrystal(BEAST), ItemsTC.visResonator
+		val royalJelly = ModuleApiculture.getItems().royalJelly
+
+		addInfusionCraftingRecipe(ModItems.energizing_frame.registryName, InfusionRecipe(
+				"ENERGIZINGFRAME@2", ItemStack(ModItems.energizing_frame), 3,
+				AspectList().add(ENERGY, 50).add(AIR, 25).add(MOTION, 25), ItemStack(ModItems.greatwood_frame),
+				ItemStack(Items.SUGAR), ItemStack(royalJelly)
+		))
+
+		addInfusionCraftingRecipe(ModItems.purifying_frame.registryName, InfusionRecipe(
+				"PURIFYINGFRAME@2", ItemStack(ModItems.purifying_frame), 3,
+				AspectList().add(AURA, 50).add(AIR, 25).add(LIFE, 25), ItemStack(ModItems.silverwood_frame),
+				makeCrystal(LIFE), ItemStack(BlocksTC.shimmerleaf)
+		))
+
+		val plateThaumium = ItemStack(ItemsTC.plate, 1, 2)
+		val deathBucket = FluidUtil.getFilledBucket(FluidStack(FluidDeath.instance, 1000))
+
+		addInfusionCraftingRecipe(ModItems.death_frame.registryName, InfusionRecipe(
+				"DEATHFRAME@4", ItemStack(ModItems.death_frame), 4,
+				AspectList().add(DEATH, 25).add(AIR, 25).add(FLUX, 25), ItemStack(ModItems.greatwood_frame),
+				plateThaumium, deathBucket, plateThaumium, Items.WATER_BUCKET
 		))
 	}
 }

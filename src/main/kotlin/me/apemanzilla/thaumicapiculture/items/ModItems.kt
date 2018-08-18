@@ -20,18 +20,41 @@ object ModItems {
 
 	val silverwood_frame by items { id ->
 		ItemMagicFrame(id, 240, StaticBeeModifier(
-				lifespan = 1.1f,
+				lifespan = 1.25f,
 				geneticDecay = 0.4f,
-				production = 2.0f
+				production = 2f
 		))
 	}
 
-	val channeling_frame by items { id ->
+	val greatwood_frame by items { id ->
+		ItemMagicFrame(id, 360, StaticBeeModifier(
+				production = 2f,
+				geneticDecay = 0.7f
+		))
+	}
+
+	val energizing_frame by items { id ->
+		ItemMagicFrame(id, 360, StaticBeeModifier(
+				production = 2.25f,
+				lifespan = 0.75f
+		))
+	}
+
+	val purifying_frame by items { id ->
 		ItemMagicFrame(id, 240, StaticBeeModifier(
-				lifespan = 1.25f,
-				geneticDecay = 0.3f,
-				production = 2.25f
-		), visCost = 1.5f)
+				lifespan = 2f,
+				geneticDecay = 0.25f,
+				production = 2f,
+				mutation = 0.75f
+		))
+	}
+
+	val death_frame by items { id ->
+		ItemMagicFrame(id, 30, StaticBeeModifier(
+				lifespan = 0f,
+				production = 0f,
+				geneticDecay = 1.5f
+		), fluxReleased = 0.25f)
 	}
 
 	fun registerItems(e: RegistryEvent.Register<Item>) {

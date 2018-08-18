@@ -1,6 +1,5 @@
 package me.apemanzilla.thaumicapiculture.research
 
-import me.apemanzilla.thaumicapiculture.ThaumicApiculture
 import net.minecraft.entity.player.EntityPlayer
 import net.minecraft.util.text.TextComponentTranslation
 import thaumcraft.api.research.theorycraft.ResearchTableData
@@ -17,14 +16,10 @@ open class CardObserveBees : TheorycraftCard() {
 
 	override fun getLocalizedText() = TextComponentTranslation("thaumicapiculture.card.observebees.text").unformattedText
 
-	override fun initialize(player: EntityPlayer?, data: ResearchTableData?): Boolean {
-		ThaumicApiculture.log.info("$this initializing")
-		return true
-	}
+	override fun initialize(player: EntityPlayer, data: ResearchTableData) = true
 
 	override fun activate(player: EntityPlayer, data: ResearchTableData): Boolean {
-		ThaumicApiculture.log.info("$this activating")
-		data.addTotal(researchCategory, 25)
+		data.addTotal(researchCategory, 20)
 		return true
 	}
 }
