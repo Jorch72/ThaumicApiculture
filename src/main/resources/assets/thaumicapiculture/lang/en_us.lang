@@ -63,4 +63,7 @@ research.DEATHFRAME.text.stage.4=Success! The deathly frame I've produced reduce
 
 # THEORYCRAFTING
 thaumicapiculture.card.observebees.name=Observe Bees
-thaumicapiculture.card.observebees.text=You carefully observe the behavior of the bees, noting any patterns in their interactions with the environment. Gain 20 progress in Thaumic Apiculture.
+thaumicapiculture.card.observebees.text=You carefully observe the behavior of the bees, noting any patterns in their interactions with the environment. Gain %d-%d progress in Thaumic Apiculture.
+
+thaumicapiculture.card.analyzebees.name=Analyze Bees
+thaumicapiculture.card.analyzebees.text=You analyze the bees, searching for any relation to thaumaturgy. Gain %d-%d progress in Thaumic Apiculture and a bonus draw.

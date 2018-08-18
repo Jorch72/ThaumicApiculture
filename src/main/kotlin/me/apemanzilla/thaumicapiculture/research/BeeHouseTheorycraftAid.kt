@@ -10,6 +10,7 @@ object BeeHouseTheorycraftAid : ITheorycraftAid {
 	@Suppress("UNCHECKED_CAST")
 	override fun getCards() = listOf(
 			CardObserveBees::class.java,
-			CardObserveBees::class.java
+			CardObserveBees::class.java,
+			CardAnalyzeBees::class.java
 	).map { it as Class<TheorycraftCard> }.toTypedArray()
 }

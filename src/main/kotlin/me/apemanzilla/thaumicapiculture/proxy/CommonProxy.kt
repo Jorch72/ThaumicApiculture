@@ -5,6 +5,7 @@ import me.apemanzilla.thaumicapiculture.ThaumicApiculture.MODID
 import me.apemanzilla.thaumicapiculture.items.ModItems
 import me.apemanzilla.thaumicapiculture.recipes.Recipes
 import me.apemanzilla.thaumicapiculture.research.BeeHouseTheorycraftAid
+import me.apemanzilla.thaumicapiculture.research.CardAnalyzeBees
 import me.apemanzilla.thaumicapiculture.research.CardObserveBees
 import net.minecraft.item.Item
 import net.minecraft.util.ResourceLocation
@@ -46,6 +47,7 @@ open class CommonProxy {
 
 	open fun postInit(e: FMLPostInitializationEvent) {
 		TheorycraftManager.registerCard(CardObserveBees::class.java)
+		TheorycraftManager.registerCard(CardAnalyzeBees::class.java)
 		TheorycraftManager.registerAid(BeeHouseTheorycraftAid)
 	}
 

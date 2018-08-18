@@ -22,7 +22,7 @@ object ModItems {
 		ItemMagicFrame(id, 240, StaticBeeModifier(
 				lifespan = 1.25f,
 				geneticDecay = 0.4f,
-				production = 2f
+				production = 1.5f
 		))
 	}
 
@@ -44,7 +44,7 @@ object ModItems {
 		ItemMagicFrame(id, 240, StaticBeeModifier(
 				lifespan = 2f,
 				geneticDecay = 0.25f,
-				production = 2f,
+				production = 1.75f,
 				mutation = 0.75f
 		))
 	}
