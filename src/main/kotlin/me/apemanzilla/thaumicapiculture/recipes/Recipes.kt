@@ -4,14 +4,13 @@ import forestry.apiculture.ModuleApiculture
 import forestry.core.ModuleCore
 import me.apemanzilla.thaumicapiculture.ThaumicApiculture.MODID
 import me.apemanzilla.thaumicapiculture.items.ModItems
+import net.minecraft.init.Blocks
 import net.minecraft.init.Items
 import net.minecraft.item.ItemStack
-import net.minecraft.nbt.NBTTagCompound
 import net.minecraft.util.ResourceLocation
 import net.minecraftforge.fluids.FluidStack
 import net.minecraftforge.fluids.FluidUtil
 import thaumcraft.api.ThaumcraftApi.*
-import thaumcraft.api.ThaumcraftApiHelper
 import thaumcraft.api.ThaumcraftApiHelper.makeCrystal
 import thaumcraft.api.aspects.Aspect
 import thaumcraft.api.aspects.Aspect.*
@@ -20,10 +19,8 @@ import thaumcraft.api.blocks.BlocksTC
 import thaumcraft.api.crafting.CrucibleRecipe
 import thaumcraft.api.crafting.InfusionRecipe
 import thaumcraft.api.crafting.ShapedArcaneRecipe
-import thaumcraft.api.crafting.ShapelessArcaneRecipe
 import thaumcraft.api.items.ItemsTC
-import thaumcraft.common.config.ConfigBlocks
-import thaumcraft.common.config.ConfigBlocks.*
+import thaumcraft.common.config.ConfigBlocks.FluidDeath
 
 object Recipes {
 	fun registerAll() {
@@ -111,9 +108,15 @@ object Recipes {
 		val deathBucket = FluidUtil.getFilledBucket(FluidStack(FluidDeath.instance, 1000))
 
 		addInfusionCraftingRecipe(ModItems.death_frame.registryName, InfusionRecipe(
-				"DEATHFRAME@4", ItemStack(ModItems.death_frame), 4,
+				"DEATHFRAME@4", ItemStack(ModItems.death_frame), 5,
 				AspectList().add(DEATH, 25).add(AIR, 25).add(FLUX, 25), ItemStack(ModItems.greatwood_frame),
 				plateThaumium, deathBucket, plateThaumium, Items.WATER_BUCKET
+		))
+
+		addInfusionCraftingRecipe(ModItems.mutating_frame.registryName, InfusionRecipe(
+				"MUTATINGFRAME@2", ItemStack(ModItems.mutating_frame), 5,
+				AspectList().add(Aspect.EXCHANGE, 25).add(FLUX, 50).add(SOUL, 25), ItemStack(ModItems.silverwood_frame),
+				ItemStack(ItemsTC.bottleTaint), ItemStack(Blocks.SOUL_SAND)
 		))
 	}
 }

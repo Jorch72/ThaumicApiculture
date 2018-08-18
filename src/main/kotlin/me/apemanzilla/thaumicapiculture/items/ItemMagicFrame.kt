@@ -20,7 +20,7 @@ open class ItemMagicFrame(
 	override fun addInformation(stack: ItemStack, world: World?, tooltip: MutableList<String>, advanced: ITooltipFlag) {
 		modifier.addInformation(stack, world, tooltip, advanced)
 		visCost?.let { vis -> tooltip += I18n.format("thaumicapiculture.modifier.viscost", vis) }
-		fluxReleased?.let { flux -> tooltip += I18n.format("thaumicapiculture.modifier.fluxreleased", flux) }
+		fluxReleased?.let { flux -> tooltip += "§5${I18n.format("thaumicapiculture.modifier.fluxreleased", flux)}" }
 	}
 
 	override fun frameUsed(housing: IBeeHousing, frame: ItemStack, queen: IBee, wear: Int): ItemStack {

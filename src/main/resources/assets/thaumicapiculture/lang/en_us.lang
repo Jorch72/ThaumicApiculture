@@ -9,6 +9,7 @@ item.thaumicapiculture.greatwood_frame.name=Greatwood Frame
 item.thaumicapiculture.energizing_frame.name=Energizing Frame
 item.thaumicapiculture.purifying_frame.name=Purifying Frame
 item.thaumicapiculture.death_frame.name=Deathly Frame
+item.thaumicapiculture.mutating_frame.name=Tainted Frame
 
 # CREATIVE TABS
 
@@ -45,7 +46,7 @@ research.APATITEENRICHMENT.text.stage.2=By mixing apatite with various essentia,
 
 research.MAGICFRAMES.title=Magical Frames
 research.MAGICFRAMES.text.stage.1=Even frames constructed of mundane materials like string and wood can drastically improve the productivity of bees, so why not see if they can be improved upon by adding a touch of magic?
-research.MAGICFRAMES.text.stage.2=Greatwood frames are very similar to mundane untreated frames, but with triple the durability. This of course comes at the cost of using more valuable materials, but should be helpful for apiaries, which can't be automatically restocked with frames.<BR>Silverwood's purifying nature translates well to frames, increasing lifespan and reducing genetic decay. This should be helpful for ignoble bees, keeping them alive longer.<BR>These results are good, but I think that they can be improved further: Both greatwood and silverwood have a natural affinity for magic, so these frames should serve well as bases for future work.
+research.MAGICFRAMES.text.stage.2=Greatwood frames are very similar to mundane untreated frames, but with triple the durability. This of course comes at the cost of using more valuable materials, but should be helpful for apiaries, which can't be automatically restocked with frames.<BR>Silverwood's purifying nature translates well to frames, increasing lifespan and reducing genetic decay. This should be particularly helpful for ignoble bees, keeping them alive longer.<BR>These results are good, but I think that they can be improved further: Both greatwood and silverwood have a natural affinity for magic, so these frames should serve well as bases for future work.
 
 research.ENERGIZINGFRAME.title=Energizing Frame
 research.ENERGIZINGFRAME.text.stage.1=The basic greatwood frame is decent, but it has potential to be better. With arcane infusion, I'm sure I can come up with something.
@@ -61,9 +62,13 @@ research.DEATHFRAME.text.stage.2=Unfortunately, it seems that even diluted liqui
 research.DEATHFRAME.text.stage.3=Thaumium seems like a good candidate to strengthen the frame: It's quite durable, and won't inhibit the magical energies imbued by the liquid death.
 research.DEATHFRAME.text.stage.4=Success! The deathly frame I've produced reduces the lifespan of bees to a single cycle, and should be the perfect tool to rapidly breed new species. Unfortunately, this comes with several drawbacks:<BR>The frame itself is quite weak, despite encasing the structure with thaumium and diluting the liquid death with water. It will need to be replaced frequently, at least until I find a better solution.<BR>The frame significantly increases genetic decay. Using other frames to reduce it would be a good idea.<BR>The worker bees carry small amounts of the liquid death from the housing. I doubt such a volatile material will do any good to the local environment...
 
+research.MUTATINGFRAME.title=Tainted Frame
+research.MUTATINGFRAME.text.stage.1=By infusing a frame with bottled taint and permutatio, I should be able to create something that will help breed bees by increasing mutation chance. I've chosen to use the silverwood frame as a base, as its purifying effects should help to balance out the negative effects and stabilize the process.
+research.MUTATINGFRAME.text.stage.2=By infusing a silverwood frame with bottled taint, permutatio, and soul sand, I've achieved significantly increased mutation rates. Unfortunately, while the silverwood does help to contain the taint, there are still negative side effects: The frame reduces productivity and lifespan, while amplifying genetic decay. On top of this, it exudes small quantities of flux. Ultimately, it's still a powerful tool, but it must be used carefully to avoid consequences.
+
 # THEORYCRAFTING
 thaumicapiculture.card.observebees.name=Observe Bees
 thaumicapiculture.card.observebees.text=You carefully observe the behavior of the bees, noting any patterns in their interactions with the environment. Gain %d-%d progress in Thaumic Apiculture.
 
 thaumicapiculture.card.analyzebees.name=Analyze Bees
-thaumicapiculture.card.analyzebees.text=You analyze the bees, searching for any relation to thaumaturgy. Gain %d-%d progress in Thaumic Apiculture and a bonus draw.
+thaumicapiculture.card.analyzebees.text=You analyze the genetic structure of the bees, searching for any relation to thaumaturgy. Gain %d-%d progress in Thaumic Apiculture and a bonus draw.

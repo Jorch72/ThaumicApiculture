@@ -45,16 +45,25 @@ object ModItems {
 				lifespan = 2f,
 				geneticDecay = 0.25f,
 				production = 1.75f,
-				mutation = 0.75f
+				mutation = 0.5f
 		))
 	}
 
+	val mutating_frame by items { id ->
+		ItemMagicFrame(id, 240, StaticBeeModifier(
+				mutation = 1.5f,
+				production = 0.5f,
+				geneticDecay = 1.25f,
+				lifespan = 0.75f
+		), fluxReleased = 0.25f)
+	}
+
 	val death_frame by items { id ->
-		ItemMagicFrame(id, 30, StaticBeeModifier(
+		ItemMagicFrame(id, 40, StaticBeeModifier(
 				lifespan = 0f,
 				production = 0f,
 				geneticDecay = 1.5f
-		), fluxReleased = 0.25f)
+		), fluxReleased = 1f)
 	}
 
 	fun registerItems(e: RegistryEvent.Register<Item>) {

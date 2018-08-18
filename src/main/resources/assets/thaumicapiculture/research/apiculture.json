@@ -6,7 +6,7 @@
 			"icons": [ "forestry:bee_combs" ],
 			"category": "THAUMICAPICULTURE",
 			"meta": [ "ROUND", "SPIKY" ],
-			"parents": [ "FIRSTSTEPS" ],
+			"parents": [ "THEORYRESEARCH" ],
 			"location": [ 0, 0 ],
 			"stages": [
 				{
@@ -84,8 +84,10 @@
 			"stages": [
 				{
 					"text": "research.MAGICFRAMES.text.stage.1",
-					"required_knowledge": [ "THEORY;THAUMICAPICULTURE;1" ],
-					"required_item": [ "thaumcraft:plank_silverwood", "thaumcraft:plank_greatwood", "forestry:frame_untreated" ]
+					"required_knowledge": [ "THEORY;THAUMICAPICULTURE;1", "OBSERVATION;INFUSION;1" ],
+					"required_item": [
+						"thaumcraft:plank_silverwood", "thaumcraft:plank_greatwood", "forestry:frame_untreated"
+					]
 				},
 				{
 					"text": "research.MAGICFRAMES.text.stage.2",
@@ -99,11 +101,11 @@
 			"icons": [ "thaumicapiculture:energizing_frame" ],
 			"category": "THAUMICAPICULTURE",
 			"parents": [ "MAGICFRAMES", "INFUSION" ],
-			"location": [ 3, 0 ],
+			"location": [ 2, 0 ],
 			"stages": [
 				{
 					"text": "research.ENERGIZINGFRAME.text.stage.1",
-					"required_knowledge": [ "THEORY;THAUMICAPICULTURE;1", "THEORY;INFUSION;1" ],
+					"required_knowledge": [ "THEORY;THAUMICAPICULTURE;1", "OBSERVATION;INFUSION;1" ],
 					"required_craft": [ "thaumicapiculture:greatwood_frame" ]
 				},
 				{
@@ -117,12 +119,12 @@
 			"name": "research.PURIFYINGFRAME.title",
 			"icons": [ "thaumicapiculture:purifying_frame" ],
 			"category": "THAUMICAPICULTURE",
-			"parents": [ "MAGICFRAMES", "VERDANTCHARMS" ],
-			"location": [ 5, 0 ],
+			"parents": [ "MAGICFRAMES", "INFUSION", "VERDANTCHARMS" ],
+			"location": [ 4, 0 ],
 			"stages": [
 				{
 					"text": "research.PURIFYINGFRAME.text.stage.1",
-					"required_knowledge": [ "THEORY;THAUMICAPICULTURE;1", "THEORY;INFUSION;1" ],
+					"required_knowledge": [ "THEORY;THAUMICAPICULTURE;1", "OBSERVATION;INFUSION;1" ],
 					"required_craft": [ "thaumic_apiculture:silverwood_frame" ]
 				},
 				{
@@ -132,16 +134,39 @@
 			]
 		},
 		{
+			"key": "MUTATINGFRAME",
+			"name": "research.MUTATINGFRAME.title",
+			"icons": [ "thaumicapiculture:mutating_frame" ],
+			"category": "THAUMICAPICULTURE",
+			"parents": [ "MAGICFRAMES", "INFUSION", "BOTTLETAINT" ],
+			"location": [ 6, 0 ],
+			"stages": [
+				{
+					"text": "research.MUTATINGFRAME.text.stage.1",
+					"required_knowledge": [ "THEORY;THAUMICAPICULTURE;1", "OBSERVATION;INFUSION;1" ],
+					"required_craft": [ "thaumicapiculture:silverwood_frame", "thaumcraft:bottle_taint" ],
+					"required_item": [ "thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'permutatio'}]}" ],
+					"warp": 1
+				},
+				{
+					"text": "research.MUTATINGFRAME.text.stage.2",
+					"recipes": [ "thaumicapiculture:mutating_frame" ]
+				}
+			]
+		},
+		{
 			"key": "DEATHFRAME",
 			"name": "research.DEATHFRAME.title",
 			"icons": [ "thaumicapiculture:death_frame" ],
 			"category": "THAUMICAPICULTURE",
-			"parents": [ "MAGICFRAMES", "LIQUIDDEATH" ],
-			"location": [ 7, 0 ],
+			"parents": [ "MAGICFRAMES", "INFUSION", "LIQUIDDEATH" ],
+			"location": [ 8, 0 ],
 			"stages": [
 				{
 					"text": "research.DEATHFRAME.text.stage.1",
-					"required_knowledge": [ "THEORY;THAUMICAPICULTURE;1", "THEORY;INFUSION;1" ],
+					"required_knowledge": [
+						"THEORY;THAUMICAPICULTURE;1", "THEORY;ALCHEMY;1", "OBSERVATION;INFUSION;1"
+					],
 					"required_item": [ "thaumicapiculture:greatwood_frame" ],
 					"required_craft": [ "forge:bucketfilled;1;0;{FluidName:'liquid_death',Amount:1000}" ],
 					"warp": 2
@@ -152,8 +177,8 @@
 				},
 				{
 					"text": "research.DEATHFRAME.text.stage.3",
-					"required_knowledge": [ "OBSERVATION;INFUSION;1", "THEORY;ALCHEMY;1" ],
-					"required_item": [ "thaumcraft:plate;1;2", "thaumicapiculture:greatwood_frame" ]
+					"required_knowledge": [ "OBSERVATION;ALCHEMY;1" ],
+					"required_craft": [ "thaumcraft:plate;1;2", "thaumicapiculture:greatwood_frame" ]
 				},
 				{
 					"text": "research.DEATHFRAME.text.stage.4",
