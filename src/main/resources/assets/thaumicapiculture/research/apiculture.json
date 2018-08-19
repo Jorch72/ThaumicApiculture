@@ -100,13 +100,14 @@
 			"name": "research.ENERGIZINGFRAME.title",
 			"icons": [ "thaumicapiculture:energizing_frame" ],
 			"category": "THAUMICAPICULTURE",
-			"parents": [ "MAGICFRAMES", "INFUSION" ],
+			"parents": [ "MAGICFRAMES", "BASEALCHEMY" ],
 			"location": [ 2, 0 ],
 			"stages": [
 				{
 					"text": "research.ENERGIZINGFRAME.text.stage.1",
-					"required_knowledge": [ "THEORY;THAUMICAPICULTURE;1", "OBSERVATION;INFUSION;1" ],
-					"required_craft": [ "thaumicapiculture:greatwood_frame" ]
+					"required_knowledge": [ "THEORY;THAUMICAPICULTURE;1", "OBSERVATION;ALCHEMY;1" ],
+					"required_craft": [ "thaumicapiculture:energizing_frame" ],
+					"recipes": [ "thaumicapiculture:energizing_frame" ]
 				},
 				{
 					"text": "research.ENERGIZINGFRAME.text.stage.2",
@@ -119,13 +120,14 @@
 			"name": "research.PURIFYINGFRAME.title",
 			"icons": [ "thaumicapiculture:purifying_frame" ],
 			"category": "THAUMICAPICULTURE",
-			"parents": [ "MAGICFRAMES", "INFUSION", "VERDANTCHARMS" ],
+			"parents": [ "MAGICFRAMES", "BASEALCHEMY" ],
 			"location": [ 4, 0 ],
 			"stages": [
 				{
 					"text": "research.PURIFYINGFRAME.text.stage.1",
-					"required_knowledge": [ "THEORY;THAUMICAPICULTURE;1", "OBSERVATION;INFUSION;1" ],
-					"required_craft": [ "thaumic_apiculture:silverwood_frame" ]
+					"required_knowledge": [ "THEORY;THAUMICAPICULTURE;1", "OBSERVATION;ALCHEMY;1" ],
+					"required_craft": [ "thaumicapiculture:purifying_frame" ],
+					"recipes": [ "thaumicapiculture:purifying_frame" ]
 				},
 				{
 					"text": "research.PURIFYINGFRAME.text.stage.2",

@@ -87,23 +87,19 @@ object Recipes {
 				"APATITEENRICHMENT@2", ItemStack(fertilizer, 20), ItemStack(apatite),
 				AspectList().add(PLANT, 10).add(LIFE, 10).add(ORDER, 5)
 		))
+
+		addCrucibleRecipe(ModItems.energizing_frame.registryName, CrucibleRecipe(
+				"ENERGIZINGFRAME@1", ItemStack(ModItems.energizing_frame), ItemStack(ModItems.greatwood_frame),
+				AspectList().add(ENERGY, 100).add(MOTION, 25)
+		))
+
+		addCrucibleRecipe(ModItems.purifying_frame.registryName, CrucibleRecipe(
+				"PURIFYINGFRAME@1", ItemStack(ModItems.purifying_frame), ItemStack(ModItems.silverwood_frame),
+				AspectList().add(AURA, 50).add(LIFE, 25)
+		))
 	}
 
 	fun registerInfusionRecipes() {
-		val royalJelly = ModuleApiculture.getItems().royalJelly
-
-		addInfusionCraftingRecipe(ModItems.energizing_frame.registryName, InfusionRecipe(
-				"ENERGIZINGFRAME@2", ItemStack(ModItems.energizing_frame), 3,
-				AspectList().add(ENERGY, 50).add(AIR, 25).add(MOTION, 25), ItemStack(ModItems.greatwood_frame),
-				ItemStack(Items.SUGAR), ItemStack(royalJelly)
-		))
-
-		addInfusionCraftingRecipe(ModItems.purifying_frame.registryName, InfusionRecipe(
-				"PURIFYINGFRAME@2", ItemStack(ModItems.purifying_frame), 3,
-				AspectList().add(AURA, 50).add(AIR, 25).add(LIFE, 25), ItemStack(ModItems.silverwood_frame),
-				makeCrystal(LIFE), ItemStack(BlocksTC.shimmerleaf)
-		))
-
 		val plateThaumium = ItemStack(ItemsTC.plate, 1, 2)
 		val deathBucket = FluidUtil.getFilledBucket(FluidStack(FluidDeath.instance, 1000))
 
