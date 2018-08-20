@@ -47,7 +47,7 @@ repositories {
 
 def forgelinVersion = '1.7.3'
 def thaumcraftVersion = '6.1.BETA22'
-def forestryVersion = '5.8.1.338'
+def forestryVersion = '5.8.1.339'
 
 dependencies {
 	compile "net.shadowfacts:Forgelin:$forgelinVersion"
