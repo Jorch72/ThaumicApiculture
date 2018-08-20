@@ -6,11 +6,17 @@
 			"icons": [ "forestry:bee_combs" ],
 			"category": "THAUMICAPICULTURE",
 			"meta": [ "ROUND", "SPIKY" ],
-			"parents": [ "THEORYRESEARCH" ],
+			"parents": [ "FIRSTSTEPS" ],
 			"location": [ 0, 0 ],
 			"stages": [
 				{
 					"text": "research.BASEAPICULTURE.text.stage.1"
+				}
+			],
+			"addenda": [
+				{
+					"text": "research.BASEAPICULTURE.addenda.theoryaid",
+					"required_research": [ "THEORYRESEARCH@2" ]
 				}
 			]
 		},
@@ -78,7 +84,7 @@
 			"name": "research.MAGICFRAMES.title",
 			"icons": [ "thaumicapiculture:silverwood_frame", "thaumicapiculture:greatwood_frame" ],
 			"category": "THAUMICAPICULTURE",
-			"parents": [ "BASEAPICULTURE", "!PLANTWOOD", "UNLOCKINFUSION" ],
+			"parents": [ "BASEAPICULTURE", "UNLOCKINFUSION" ],
 			"location": [ 1, 2 ],
 			"meta": [ "REVERSE" ],
 			"stages": [
@@ -185,6 +191,44 @@
 				{
 					"text": "research.DEATHFRAME.text.stage.4",
 					"recipes": [ "thaumicapiculture:death_frame" ]
+				}
+			]
+		},
+		{
+			"key": "MAGICAPIARY",
+			"name": "research.MAGICAPIARY.title",
+			"icons": [],
+			"category": "THAUMICAPICULTURE",
+			"parents": [ "ENERGIZINGFRAME", "PURIFYINGFRAME", "MUTATINGFRAME", "DEATHFRAME", "ESSENTIATRANSPORT" ],
+			"location": [ 5, -2 ],
+			"meta": [ "SPIKY", "REVERSE", "HIDDEN" ],
+			"stages": [
+				{
+					"text": "research.MAGICAPIARY.text.stage.1",
+					"required_knowledge": [ "THEORY;THAUMICAPICULTURE;2", "THEORY;INFUSION;1" ]
+				},
+				{
+					"text": "research.MAGICAPIARY.text.stage.2"
+				}
+			]
+		},
+		{
+			"key": "APIARISTENCHANT",
+			"name": "research.APIARISTENCHANT.title",
+			"icons": [ "forestry:apiarist_helmet" ],
+			"category": "THAUMICAPICULTURE",
+			"parents": [ "BASEAPICULTURE", "INFUSIONENCHANTMENT" ],
+			"location": [ -1, -2 ],
+			"meta": [ "REVERSE" ],
+			"stages": [
+				{
+					"text": "research.APIARISTENCHANT.text.stage.1",
+					"required_knowledge": [ "THEORY;THAUMICAPICULTURE;1", "THEORY;INFUSION;1" ],
+					"required_item": [ "forestry:crafting_material;1;3" ]
+				},
+				{
+					"text": "research.APIARISTENCHANT.text.stage.2",
+					"recipes": [ "thaumicapiculture:apiarist_enchant_fake" ]
 				}
 			]
 		}

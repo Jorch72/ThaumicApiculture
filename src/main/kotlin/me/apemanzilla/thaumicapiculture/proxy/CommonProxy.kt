@@ -1,22 +1,32 @@
 package me.apemanzilla.thaumicapiculture.proxy
 
+import forestry.api.apiculture.ApicultureCapabilities
+import forestry.api.apiculture.ApicultureCapabilities.*
+import forestry.api.apiculture.IArmorApiarist
 import me.apemanzilla.thaumicapiculture.ThaumicApiculture
 import me.apemanzilla.thaumicapiculture.ThaumicApiculture.MODID
+import me.apemanzilla.thaumicapiculture.capabilities.InfusionApiaristCapabilityProvider
 import me.apemanzilla.thaumicapiculture.items.ModItems
+import me.apemanzilla.thaumicapiculture.recipes.InfusionApiaristRecipe
 import me.apemanzilla.thaumicapiculture.recipes.Recipes
+import me.apemanzilla.thaumicapiculture.recipes.hasApiaristEnchant
 import me.apemanzilla.thaumicapiculture.research.BeeHouseTheorycraftAid
 import me.apemanzilla.thaumicapiculture.research.CardAnalyzeBees
 import me.apemanzilla.thaumicapiculture.research.CardObserveBees
 import net.minecraft.item.Item
+import net.minecraft.item.ItemStack
+import net.minecraft.util.EnumFacing
 import net.minecraft.util.ResourceLocation
 import net.minecraftforge.common.MinecraftForge
+import net.minecraftforge.common.capabilities.Capability
+import net.minecraftforge.common.capabilities.ICapabilityProvider
+import net.minecraftforge.event.AttachCapabilitiesEvent
 import net.minecraftforge.event.RegistryEvent
 import net.minecraftforge.fml.common.event.FMLInitializationEvent
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent
 import thaumcraft.api.ThaumcraftApi
-import thaumcraft.api.aspects.Aspect
 import thaumcraft.api.aspects.Aspect.*
 import thaumcraft.api.aspects.AspectList
 import thaumcraft.api.research.ResearchCategories
@@ -54,5 +64,15 @@ open class CommonProxy {
 	companion object CommonEvents {
 		@SubscribeEvent
 		fun registerItems(e: RegistryEvent.Register<Item>) = ModItems.registerItems(e)
+
+		@SubscribeEvent
+		fun attachItemCaps(e: AttachCapabilitiesEvent<ItemStack>) {
+			if (e.`object`.hasApiaristEnchant()) {
+				e.addCapability(
+						ResourceLocation(MODID, InfusionApiaristRecipe.nbtKey),
+						InfusionApiaristCapabilityProvider
+				)
+			}
+		}
 	}
 }

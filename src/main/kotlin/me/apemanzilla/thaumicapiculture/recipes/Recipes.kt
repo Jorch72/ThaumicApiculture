@@ -21,6 +21,7 @@ import thaumcraft.api.crafting.InfusionRecipe
 import thaumcraft.api.crafting.ShapedArcaneRecipe
 import thaumcraft.api.items.ItemsTC
 import thaumcraft.common.config.ConfigBlocks.FluidDeath
+import thaumcraft.common.lib.crafting.InfusionEnchantmentRecipe
 
 object Recipes {
 	fun registerAll() {
@@ -114,5 +115,8 @@ object Recipes {
 				AspectList().add(Aspect.EXCHANGE, 25).add(FLUX, 50).add(SOUL, 25), ItemStack(ModItems.silverwood_frame),
 				ItemStack(ItemsTC.bottleTaint), ItemStack(Blocks.SOUL_SAND)
 		))
+
+		addInfusionCraftingRecipe(ResourceLocation(MODID, "apiarist_enchant"), InfusionApiaristRecipe)
+		addFakeCraftingRecipe(ResourceLocation(MODID, "apiarist_enchant_fake"), InfusionApiaristRecipe.fakeRecipe)
 	}
 }
