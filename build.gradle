@@ -21,7 +21,7 @@ compileJava {
 }
 
 minecraft {
-	version = '1.12.2-14.23.4.2705'
+	version = '1.12.2-14.23.4.2757'
 	runDir = 'run'
 
 	mappings = 'snapshot_20171003'
@@ -47,14 +47,14 @@ repositories {
 
 def forgelinVersion = '1.7.3'
 def thaumcraftVersion = '6.1.BETA22'
-def forestryVersion = '5.8.1.326'
+def forestryVersion = '5.8.1.338'
 
 dependencies {
 	compile "net.shadowfacts:Forgelin:$forgelinVersion"
 
 	deobfCompile "thaumcraft:Thaumcraft:1.12.2:$thaumcraftVersion"
 
-	compile "net.sengir.forestry:forestry_1.12.2:$forestryVersion"
+	deobfCompile "net.sengir.forestry:forestry_1.12.2:$forestryVersion"
 
 	// Mods that are required at runtime, or just useful for testing
 

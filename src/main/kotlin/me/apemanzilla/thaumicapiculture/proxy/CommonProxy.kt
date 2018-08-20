@@ -1,8 +1,5 @@
 package me.apemanzilla.thaumicapiculture.proxy
 
-import forestry.api.apiculture.ApicultureCapabilities
-import forestry.api.apiculture.ApicultureCapabilities.*
-import forestry.api.apiculture.IArmorApiarist
 import me.apemanzilla.thaumicapiculture.ThaumicApiculture
 import me.apemanzilla.thaumicapiculture.ThaumicApiculture.MODID
 import me.apemanzilla.thaumicapiculture.capabilities.InfusionApiaristCapabilityProvider
@@ -15,11 +12,8 @@ import me.apemanzilla.thaumicapiculture.research.CardAnalyzeBees
 import me.apemanzilla.thaumicapiculture.research.CardObserveBees
 import net.minecraft.item.Item
 import net.minecraft.item.ItemStack
-import net.minecraft.util.EnumFacing
 import net.minecraft.util.ResourceLocation
 import net.minecraftforge.common.MinecraftForge
-import net.minecraftforge.common.capabilities.Capability
-import net.minecraftforge.common.capabilities.ICapabilityProvider
 import net.minecraftforge.event.AttachCapabilitiesEvent
 import net.minecraftforge.event.RegistryEvent
 import net.minecraftforge.fml.common.event.FMLInitializationEvent
