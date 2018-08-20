@@ -215,7 +215,7 @@
 		{
 			"key": "APIARISTENCHANT",
 			"name": "research.APIARISTENCHANT.title",
-			"icons": [ "forestry:apiarist_helmet" ],
+			"icons": [ "thaumicapiculture:textures/research/apiarist_enchant.png" ],
 			"category": "THAUMICAPICULTURE",
 			"parents": [ "BASEAPICULTURE", "INFUSIONENCHANTMENT" ],
 			"location": [ -1, -2 ],
