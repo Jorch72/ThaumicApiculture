@@ -2,19 +2,14 @@ package me.apemanzilla.thaumicapiculture.proxy
 
 import me.apemanzilla.thaumicapiculture.ThaumicApiculture
 import me.apemanzilla.thaumicapiculture.ThaumicApiculture.MODID
-import me.apemanzilla.thaumicapiculture.capabilities.InfusionApiaristCapabilityProvider
 import me.apemanzilla.thaumicapiculture.items.ModItems
-import me.apemanzilla.thaumicapiculture.recipes.InfusionApiaristRecipe
 import me.apemanzilla.thaumicapiculture.recipes.Recipes
-import me.apemanzilla.thaumicapiculture.recipes.hasApiaristEnchant
 import me.apemanzilla.thaumicapiculture.research.BeeHouseTheorycraftAid
 import me.apemanzilla.thaumicapiculture.research.CardAnalyzeBees
 import me.apemanzilla.thaumicapiculture.research.CardObserveBees
 import net.minecraft.item.Item
-import net.minecraft.item.ItemStack
 import net.minecraft.util.ResourceLocation
 import net.minecraftforge.common.MinecraftForge
-import net.minecraftforge.event.AttachCapabilitiesEvent
 import net.minecraftforge.event.RegistryEvent
 import net.minecraftforge.fml.common.event.FMLInitializationEvent
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent
@@ -38,7 +33,7 @@ open class CommonProxy {
 	open fun init(e: FMLInitializationEvent) {
 		ResearchCategories.registerCategory(
 				"THAUMICAPICULTURE",
-				null, // no previous research needed to discover this category
+				"FIRSTSTEPS",
 				AspectList().add(LIFE, 10).add(BEAST, 5).add(AIR, 5).add(PLANT, 5),
 				ResourceLocation(MODID, "textures/items/thaumium_scoop.png"),
 				ResourceLocation("thaumcraft", "textures/gui/gui_research_back_1.jpg"),
@@ -58,15 +53,5 @@ open class CommonProxy {
 	companion object CommonEvents {
 		@SubscribeEvent
 		fun registerItems(e: RegistryEvent.Register<Item>) = ModItems.registerItems(e)
-
-		@SubscribeEvent
-		fun attachItemCaps(e: AttachCapabilitiesEvent<ItemStack>) {
-			if (e.`object`.hasApiaristEnchant()) {
-				e.addCapability(
-						ResourceLocation(MODID, InfusionApiaristRecipe.nbtKey),
-						InfusionApiaristCapabilityProvider
-				)
-			}
-		}
 	}
 }

@@ -1,11 +1,16 @@
 package me.apemanzilla.thaumicapiculture.recipes
 
+import forestry.api.apiculture.ApicultureCapabilities
+import forestry.api.arboriculture.ArboricultureCapabilities
 import forestry.apiculture.ModuleApiculture
+import forestry.arboriculture.ModuleArboriculture
 import forestry.core.ModuleCore
 import me.apemanzilla.thaumicapiculture.ThaumicApiculture.MODID
 import me.apemanzilla.thaumicapiculture.items.ModItems
 import net.minecraft.init.Blocks
 import net.minecraft.init.Items
+import net.minecraft.inventory.EntityEquipmentSlot
+import net.minecraft.item.ItemArmor
 import net.minecraft.item.ItemStack
 import net.minecraft.util.ResourceLocation
 import net.minecraftforge.fluids.FluidStack
@@ -116,7 +121,22 @@ object Recipes {
 				ItemStack(ItemsTC.bottleTaint), ItemStack(Blocks.SOUL_SAND)
 		))
 
-		addInfusionCraftingRecipe(ResourceLocation(MODID, "apiarist_enchant"), InfusionApiaristRecipe)
-		addFakeCraftingRecipe(ResourceLocation(MODID, "apiarist_enchant_fake"), InfusionApiaristRecipe.fakeRecipe)
+		val spectacleInfusion = CustomInfusionEnchantRecipe(
+				"spectacle_infusion", "FORESTERINFUSION@2", 1, AspectList().add(ORDER, 25).add(SENSES, 25),
+				ArboricultureCapabilities.ARMOR_NATURALIST,
+				ItemStack(ModuleCore.getItems().spectacles), ItemStack(Items.SLIME_BALL)
+		) { stack -> (stack.item as? ItemArmor)?.equipmentSlot == EntityEquipmentSlot.HEAD }
+
+		addInfusionCraftingRecipe(ResourceLocation(MODID, spectacleInfusion.name), spectacleInfusion)
+		addFakeCraftingRecipe(ResourceLocation(MODID, spectacleInfusion.name + "_fake"), spectacleInfusion.fakeRecipe(ItemStack(Items.DIAMOND_HELMET)))
+
+		val apiaristInfusion = CustomInfusionEnchantRecipe(
+				"apiarist_infusion", "FORESTERINFUSION@2", 2, AspectList().add(PROTECT, 50).add(AIR, 25),
+				ApicultureCapabilities.ARMOR_APIARIST,
+				*Array(6) { ItemStack(ModuleCore.getItems().craftingMaterial, 1, 3) }
+		) { stack -> stack.item is ItemArmor }
+
+		addInfusionCraftingRecipe(ResourceLocation(MODID, apiaristInfusion.name), apiaristInfusion)
+		addFakeCraftingRecipe(ResourceLocation(MODID, apiaristInfusion.name + "_fake"), apiaristInfusion.fakeRecipe(ItemStack(Items.DIAMOND_CHESTPLATE)))
 	}
 }

@@ -12,7 +12,8 @@ item.thaumicapiculture.death_frame.name=Deathly Frame
 item.thaumicapiculture.mutating_frame.name=Tainted Frame
 
 # TOOLTIPS
-tooltip.thaumicapiculture.apiaristinfusion=Apiarist's Armor
+tooltip.thaumicapiculture.spectacle_infusion=Spectacular
+tooltip.thaumicapiculture.apiarist_infusion=Bee Be-Gone
 
 # CREATIVE TABS
 
@@ -70,9 +71,9 @@ research.MUTATINGFRAME.title=Tainted Frame
 research.MUTATINGFRAME.text.stage.1=Flux and taint have very interesting properties, including their ability to change their environment. After my success containing them in the form of bottled taint, I suspect that this could be applied to frames as well, to produce something that mutates bees. This does seem relatively risky though - I should use the silverwood frame as a base to help keep the taint under control, and mitigate other negative effects.
 research.MUTATINGFRAME.text.stage.2=By infusing a silverwood frame with bottled taint, I've achieved significantly increased mutation rates. Unfortunately, while the silverwood does help to contain the taint, there are still negative side effects: The frame reduces productivity and lifespan, while amplifying genetic decay. On top of this, it releases small quantities of flux. Ultimately, it's still a powerful tool, but it must be used carefully to avoid consequences.
 
-research.APIARISTENCHANT.title=Apiarist's Armor Infusion
-research.APIARISTENCHANT.text.stage.1=Most bees are fine, but some have particularly nasty effects. There's apiarist's armor, but using it means you can't use any other (potentially much cooler) armor. I believe that using infusion, it will be possible to infuse a similar effect into almost any piece of armor, similar to infusion enchantment.
-research.APIARISTENCHANT.text.stage.2=By infusing armor with woven silk, I can have protection from bees without sacrificing other bonuses. Like apiarist armor, the infused protection is only fully effective when applied to all pieces of armor.<LINE>§oThere is currently a bug that causes the effect to temporarily stop working when the item is moved to a different slot. To fix this, equip the armor and reload the world/reconnect to the server.§r
+research.FORESTERINFUSION.title=Forester's Armor Infusion
+research.FORESTERINFUSION.text.stage.1=Most bees are fine, but some have particularly nasty effects. There's apiarist's armor, but using it means you can't use any other (potentially much cooler) armor. Likewise, spectacles require sacrificing a helmet. I believe that using infusion, it will be possible to infuse similar effects into almost any piece of armor, not unlike infusion enchantment.
+research.FORESTERINFUSION.text.stage.2=By infusing armor with woven silk, I can have protection from bees without sacrificing other bonuses. Like standard apiarist armor, the infused protection is only fully effective when applied to all pieces of armor.<BR>Spectacles may also be infused into helmets to provide their functionality.
 
 research.MAGICAPIARY.title=Infusing Apiary
 research.MAGICAPIARY.text.stage.1=Until now, I've focused my efforts on producing a variety of frames to be installed in bee housings. The results are promising, but I think it's time to take up a more ambitious goal.<BR>My successes with imbued and infused frames have proven that essentia, under the right conditions, can alter the behavior of bees and their interaction with the environment. Why not skip the intermediate step entirely and feed essentia directly to the housing?<BR>I believe that a modified essentia transfuser and specialized enclosure will be necessary for this to work: Essentia is somewhat difficult to handle, even when you're not pouring it into a swarm of bees.

@@ -16,7 +16,7 @@
 			"addenda": [
 				{
 					"text": "research.BASEAPICULTURE.addenda.theoryaid",
-					"required_research": [ "THEORYRESEARCH@2" ]
+					"required_research": [ "THEORYRESEARCH" ]
 				}
 			]
 		},
@@ -197,7 +197,7 @@
 		{
 			"key": "MAGICAPIARY",
 			"name": "research.MAGICAPIARY.title",
-			"icons": [],
+			"icons": [ ],
 			"category": "THAUMICAPICULTURE",
 			"parents": [ "ENERGIZINGFRAME", "PURIFYINGFRAME", "MUTATINGFRAME", "DEATHFRAME", "ESSENTIATRANSPORT" ],
 			"location": [ 5, -2 ],
@@ -213,22 +213,24 @@
 			]
 		},
 		{
-			"key": "APIARISTENCHANT",
-			"name": "research.APIARISTENCHANT.title",
-			"icons": [ "thaumicapiculture:textures/research/apiarist_enchant.png" ],
+			"key": "FORESTERINFUSION",
+			"name": "research.FORESTERINFUSION.title",
+			"icons": [
+				"thaumicapiculture:textures/research/foresterinfusion1.png",
+				"thaumicapiculture:textures/research/foresterinfusion2.png"
+			],
 			"category": "THAUMICAPICULTURE",
 			"parents": [ "BASEAPICULTURE", "INFUSIONENCHANTMENT" ],
 			"location": [ -1, -2 ],
 			"meta": [ "REVERSE" ],
 			"stages": [
 				{
-					"text": "research.APIARISTENCHANT.text.stage.1",
-					"required_knowledge": [ "THEORY;THAUMICAPICULTURE;1", "THEORY;INFUSION;1" ],
-					"required_item": [ "forestry:crafting_material;1;3" ]
+					"text": "research.FORESTERINFUSION.text.stage.1",
+					"required_knowledge": [ "THEORY;THAUMICAPICULTURE;2", "THEORY;INFUSION;1" ]
 				},
 				{
-					"text": "research.APIARISTENCHANT.text.stage.2",
-					"recipes": [ "thaumicapiculture:apiarist_enchant_fake" ]
+					"text": "research.FORESTERINFUSION.text.stage.2",
+					"recipes": [ "thaumicapiculture:spectacle_infusion_fake", "thaumicapiculture:apiarist_infusion_fake" ]
 				}
 			]
 		}
