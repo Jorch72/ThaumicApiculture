@@ -46,17 +46,19 @@ class CustomInfusionEnchantRecipe(
 
 	@SubscribeEvent
 	fun onAttachItemCapabilities(e: AttachCapabilitiesEvent<ItemStack>) {
-		// item's NBT may not be set yet, so we always return a provider
-		e.addCapability(ResourceLocation(MODID, name), object : ICapabilityProvider {
-			override fun hasCapability(cap: Capability<*>, f: EnumFacing?) =
-					e.`object`.hasEnchant() && cap == capability
+		// item's NBT may not be set yet, so we always return a provider if the item could be enchanted
+		if (matchCenter(e.`object`)) {
+			e.addCapability(ResourceLocation(MODID, name), object : ICapabilityProvider {
+				override fun hasCapability(cap: Capability<*>, f: EnumFacing?) =
+						e.`object`.hasEnchant() && cap == capability
 
-			override fun <T : Any?> getCapability(cap: Capability<T>, f: EnumFacing?): T? {
-				if (e.`object`.hasEnchant() && cap == capability) return capability.defaultInstance as T
+				override fun <T : Any?> getCapability(cap: Capability<T>, f: EnumFacing?): T? {
+					if (e.`object`.hasEnchant() && cap == capability) return cap.defaultInstance
 
-				return null
-			}
-		})
+					return null
+				}
+			})
+		}
 	}
 
 	override fun matches(input: List<ItemStack>, central: ItemStack?, world: World, player: EntityPlayer): Boolean {
