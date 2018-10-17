@@ -88,6 +88,6 @@ class CustomInfusionEnchantRecipe(
 			research, null, instability, aspects, central, *components.toArray()
 	) {
 		override fun getRecipeOutput() = central.copy().applyEnchant()
-		override fun getRecipeOutput(p: EntityPlayer, item: ItemStack, comps: List<ItemStack>) = item.copy().applyEnchant()
+		override fun getRecipeOutput(p: EntityPlayer, i: ItemStack, c: List<ItemStack>) = i.copy().applyEnchant()
 	}
 }

@@ -1,10 +1,10 @@
 [
-  {
-	"modid": "thaumicapiculture",
-	"name": "Thaumic Apiculture",
-	"description": "MagicBees-inspired integration for Thaumcraft 6 and Forestry!",
-	"version": "${version}",
-	"mcversion": "${mcversion}",
-	"authorList": ["apemanzilla"]
-  }
+	{
+		"modid": "thaumicapiculture",
+		"name": "Thaumic Apiculture",
+		"description": "MagicBees-inspired integration for Thaumcraft 6 and Forestry!",
+		"version": "${version}",
+		"mcversion": "${mcversion}",
+		"authorList": [ "apemanzilla" ]
+	}
 ]
