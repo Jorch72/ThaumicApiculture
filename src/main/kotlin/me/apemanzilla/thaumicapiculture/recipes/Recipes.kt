@@ -1,22 +1,32 @@
 package me.apemanzilla.thaumicapiculture.recipes
 
-import forestry.api.apiculture.ApicultureCapabilities
+import forestry.api.apiculture.*
 import forestry.api.arboriculture.ArboricultureCapabilities
+import forestry.api.genetics.AlleleManager
+import forestry.api.genetics.IAlleleFloat
+import forestry.api.genetics.IGenome
 import forestry.apiculture.ModuleApiculture
-import forestry.arboriculture.ModuleArboriculture
+import forestry.apiculture.genetics.BeeDefinition
+import forestry.apiculture.genetics.BeeRoot
 import forestry.core.ModuleCore
+import forestry.core.genetics.alleles.AlleleFloat
+import forestry.core.genetics.alleles.AlleleHelper
+import forestry.core.genetics.alleles.AlleleRegistry
+import forestry.core.genetics.alleles.EnumAllele
 import me.apemanzilla.thaumicapiculture.ThaumicApiculture.MODID
 import me.apemanzilla.thaumicapiculture.items.ModItems
 import net.minecraft.init.Blocks
 import net.minecraft.init.Items
+import net.minecraft.init.PotionTypes
 import net.minecraft.inventory.EntityEquipmentSlot
 import net.minecraft.item.ItemArmor
 import net.minecraft.item.ItemStack
+import net.minecraft.potion.PotionType
+import net.minecraft.potion.PotionUtils
 import net.minecraft.util.ResourceLocation
 import net.minecraftforge.fluids.FluidStack
 import net.minecraftforge.fluids.FluidUtil
 import thaumcraft.api.ThaumcraftApi.*
-import thaumcraft.api.ThaumcraftApiHelper.makeCrystal
 import thaumcraft.api.aspects.Aspect
 import thaumcraft.api.aspects.Aspect.*
 import thaumcraft.api.aspects.AspectList
@@ -26,7 +36,7 @@ import thaumcraft.api.crafting.InfusionRecipe
 import thaumcraft.api.crafting.ShapedArcaneRecipe
 import thaumcraft.api.items.ItemsTC
 import thaumcraft.common.config.ConfigBlocks.FluidDeath
-import thaumcraft.common.lib.crafting.InfusionEnchantmentRecipe
+import java.lang.RuntimeException
 
 object Recipes {
 	fun registerAll() {
@@ -138,5 +148,26 @@ object Recipes {
 
 		addInfusionCraftingRecipe(ResourceLocation(MODID, apiaristInfusion.name), apiaristInfusion)
 		addFakeCraftingRecipe(ResourceLocation(MODID, apiaristInfusion.name + "_fake"), apiaristInfusion.fakeRecipe(ItemStack(Items.DIAMOND_CHESTPLATE)))
+
+		val potionSpeed2 = PotionUtils.addPotionToItemStack(ItemStack(Items.POTIONITEM), PotionTypes.STRONG_SWIFTNESS)
+		val royalJelly = ModuleApiculture.getItems().royalJelly
+
+		val beeSpeedInfusion = IncrementalBeeInfusion(
+				"bee_speed_infusion", "BEEINFUSION", 10, AspectList().add(ENERGY, 100).add(CRAFT, 100).add(MOTION, 100),
+				EnumBeeChromosome.SPEED, potionSpeed2, royalJelly, Items.SUGAR, potionSpeed2, royalJelly, Items.SUGAR
+		)
+
+		addInfusionCraftingRecipe(ResourceLocation(MODID, beeSpeedInfusion.name), beeSpeedInfusion)
+		addFakeCraftingRecipe(ResourceLocation(MODID, beeSpeedInfusion.name + "_fake"), beeSpeedInfusion.fakeRecipe(BeeDefinition.CULTIVATED))
+
+		val potionRegen2 = PotionUtils.addPotionToItemStack(ItemStack(Items.POTIONITEM), PotionTypes.STRONG_REGENERATION)
+
+		val beeFertilityInfusion = IncrementalBeeInfusion(
+				"bee_fertility_infusion", "BEEINFUSION", 10, AspectList().add(LIFE, 100).add(SOUL, 100).add(ENERGY, 100),
+				EnumBeeChromosome.FERTILITY, potionRegen2, Items.EGG, potionRegen2, Items.EGG
+		)
+
+		addInfusionCraftingRecipe(ResourceLocation(MODID, beeFertilityInfusion.name), beeFertilityInfusion)
+		addFakeCraftingRecipe(ResourceLocation(MODID, beeFertilityInfusion.name + "_fake"), beeFertilityInfusion.fakeRecipe(BeeDefinition.FOREST))
 	}
 }

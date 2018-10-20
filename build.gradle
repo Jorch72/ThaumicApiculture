@@ -22,7 +22,7 @@ compileJava {
 }
 
 minecraft {
-	version = '1.12.2-14.23.4.2757'
+	version = '1.12.2-14.23.5.2768'
 	runDir = 'run'
 
 	mappings = 'snapshot_20171003'
@@ -47,8 +47,8 @@ repositories {
 }
 
 def forgelinVersion = '1.7.3'
-def thaumcraftVersion = '6.1.BETA22'
-def forestryVersion = '5.8.1.339'
+def thaumcraftVersion = '6.1.BETA26'
+def forestryVersion = '5.8.2.354'
 
 dependencies {
 	compile "net.shadowfacts:Forgelin:$forgelinVersion"

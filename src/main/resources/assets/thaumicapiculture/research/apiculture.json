@@ -195,24 +195,6 @@
 			]
 		},
 		{
-			"key": "MAGICAPIARY",
-			"name": "research.MAGICAPIARY.title",
-			"icons": [ ],
-			"category": "THAUMICAPICULTURE",
-			"parents": [ "ENERGIZINGFRAME", "PURIFYINGFRAME", "MUTATINGFRAME", "DEATHFRAME", "ESSENTIATRANSPORT" ],
-			"location": [ 5, -2 ],
-			"meta": [ "SPIKY", "REVERSE", "HIDDEN" ],
-			"stages": [
-				{
-					"text": "research.MAGICAPIARY.text.stage.1",
-					"required_knowledge": [ "THEORY;THAUMICAPICULTURE;2", "THEORY;INFUSION;1" ]
-				},
-				{
-					"text": "research.MAGICAPIARY.text.stage.2"
-				}
-			]
-		},
-		{
 			"key": "FORESTERINFUSION",
 			"name": "research.FORESTERINFUSION.title",
 			"icons": [
@@ -231,6 +213,65 @@
 				{
 					"text": "research.FORESTERINFUSION.text.stage.2",
 					"recipes": [ "thaumicapiculture:spectacle_infusion_fake", "thaumicapiculture:apiarist_infusion_fake" ]
+				}
+			]
+		},
+		{
+			"key": "GENEREVELATION",
+			"name": "research.GENEREVELATION.title",
+			"icons": [
+				"forestry:bee_drone_ge;1;1;{Genome:{Chromosomes:[{UID0:\"forestry.speciesForest\",UID1:\"forestry.speciesForest\",Slot:0}]}}"
+			],
+			"category": "THAUMICAPICULTURE",
+			"parents": [ "ENERGIZINGFRAME", "PURIFYINGFRAME", "MUTATINGFRAME", "DEATHFRAME" ],
+			"location": [ 5, -2 ],
+			"meta": [ "SPIKY", "REVERSE", "HIDDEN" ],
+			"stages": [
+				{
+					"text": "research.GENEREVELATION.text.stage.1"
+				}
+			]
+		},
+		{
+			"key": "BEEINFUSION",
+			"name": "research.BEEINFUSION.title",
+			"icons": [
+				"thaumcraft:infusion_matrix",
+				"forestry:bee_drone_ge;1;1;{Genome:{Chromosomes:[{UID0:\"forestry.speciesForest\",UID1:\"forestry.speciesForest\",Slot:0}]}}"
+			],
+			"category": "THAUMICAPICULTURE",
+			"parents": [ "GENEREVELATION" ],
+			"location": [ 5, -4 ],
+			"stages": [
+				{
+					"text": "research.BEEINFUSION.text.stage.1",
+					"required_knowledge": [ "THEORY;THAUMICAPICULTURE;1", "THEORY;INFUSION;1" ],
+					"required_item": [
+						"forestry:bee_drone_ge;1",
+						"thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'victus'}]}",
+						"thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'potentia'}]}",
+						"thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'aer'}]}"
+					],
+					"warp": 1
+				},
+				{
+					"text": "research.BEEINFUSION.text.stage.2",
+					"required_knowledge": [ "OBSERVATION;THAUMICAPICULTURE;1" ],
+					"required_item": [
+						"forestry:bee_drone_ge;1",
+						"forestry:royal_jelly;1",
+						"thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'permutatio'}]}",
+						"thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'alienis'}]}",
+						"thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'auram'}]}",
+						"thaumcraft:phial;1;1;{Aspects:[{amount:10,key:'vitium'}]}"
+					]
+				},
+				{
+					"text": "research.BEEINFUSION.text.stage.3",
+					"recipes": [
+						"thaumicapiculture:bee_speed_infusion_fake",
+						"thaumicapiculture:bee_fertility_infusion_fake"
+					]
 				}
 			]
 		}

@@ -1,0 +1,133 @@
+package me.apemanzilla.thaumicapiculture.recipes
+
+import forestry.api.apiculture.IBee
+import forestry.api.apiculture.IBeeRoot
+import forestry.api.genetics.*
+import forestry.api.genetics.AlleleManager.alleleRegistry
+import net.minecraft.entity.player.EntityPlayer
+import net.minecraft.item.ItemStack
+import net.minecraft.item.crafting.Ingredient
+import net.minecraft.world.World
+import net.minecraftforge.common.util.RecipeMatcher
+import thaumcraft.api.aspects.AspectList
+import thaumcraft.api.capabilities.ThaumcraftCapabilities
+import thaumcraft.api.crafting.InfusionRecipe
+import kotlin.math.max
+import kotlin.math.min
+
+abstract class GeneticInfusionRecipe(
+		val name: String,
+		research: String,
+		instability: Int,
+		aspects: AspectList,
+		vararg recipe: Any
+) : InfusionRecipe(research, null, instability, aspects, Ingredient.EMPTY, *recipe) {
+	companion object {
+		fun IGenome.primaryAlleles() = chromosomes.map { it.primaryAllele }.toTypedArray()
+		fun IGenome.secondaryAlleles() = chromosomes.map { it.secondaryAllele }.toTypedArray()
+
+		inline fun <reified T : IAllele> IGenome.mapChromosome(type: IChromosomeType, f: (T) -> T): IGenome {
+			// do nothing if the chromosome is for a different species
+			if (type.speciesRoot != speciesRoot) return this
+
+			// check that chromosome type matches allele type
+			require(type.alleleClass.isAssignableFrom(T::class.java)) {
+				"Invalid allele type: expected ${type.alleleClass}, got ${T::class.java}"
+			}
+
+			// extract primary/secondary alleles
+			val primary = primaryAlleles()
+			val secondary = secondaryAlleles()
+
+			// map alleles for selected chromosome
+			primary[type.ordinal()] = f(primary[type.ordinal()] as T)
+			secondary[type.ordinal()] = f(secondary[type.ordinal()] as T)
+
+			// create new genome
+			return speciesRoot.templateAsGenome(primary, secondary)
+		}
+
+		inline fun <reified T : IAllele> IGenome.incrementChromosome(
+				type: IChromosomeType,
+				comparator: Comparator<T>,
+				amount: Int = 1
+		): IGenome {
+			val alleles = AlleleManager.alleleRegistry.getRegisteredAlleles(type)
+					.map { it as T }
+					.sortedWith(comparator)
+					.toTypedArray()
+
+			return mapChromosome<T>(type) {
+				val oldIndex = alleles.indexOf(it)
+
+				if (oldIndex == -1) {
+					it
+				} else {
+					alleles[max(0, min(alleles.size - 1, oldIndex + amount))]
+				}
+			}
+		}
+	}
+
+	abstract fun modifyGenome(genome: IGenome): IGenome
+
+	open fun canModify(individual: IIndividual) = !modifyGenome(individual.genome).isGeneticEqual(individual.genome)
+
+	override fun matches(input: List<ItemStack>, central: ItemStack?, world: World, player: EntityPlayer): Boolean {
+		// check that central item is present
+		if (central?.isEmpty != false) return false
+
+		// check that player knows research
+		if (!ThaumcraftCapabilities.knowsResearch(player, research)) return false
+
+		// get species root associated with the item
+		val speciesRoot = alleleRegistry.getSpeciesRoot(central) ?: return false
+
+		// for bees, check that there's no mate
+		if (speciesRoot is IBeeRoot && speciesRoot.isMated(central)) return false
+
+		// get the individual associated with the item
+		val individual = speciesRoot.getMember(central) ?: return false
+
+		// check that the individual can be modified
+		if (!canModify(individual)) return false
+
+		// check that outer items are valid
+		if (RecipeMatcher.findMatches(input, components) == null) return false
+
+		// infusion is valid
+		return true
+	}
+
+	fun getRecipeOutput(input: ItemStack): ItemStack {
+		// create modified individual
+		val speciesRoot = alleleRegistry.getSpeciesRoot(input)!!
+		val oldIndividual = speciesRoot.getMember(input)!!
+		val genome = modifyGenome(speciesRoot.getMember(input)!!.genome)
+		val individual = speciesRoot.templateAsIndividual(genome.primaryAlleles(), genome.secondaryAlleles())
+
+		// update other traits of individual to match input
+		if (oldIndividual.isAnalyzed) {
+			individual.analyze()
+		}
+
+		if (oldIndividual is IIndividualLiving && individual is IIndividualLiving) {
+			individual.health = oldIndividual.health
+
+			if (oldIndividual is IBee && individual is IBee) {
+				individual.setIsNatural(oldIndividual.isNatural)
+			}
+		}
+
+		// create the item
+		return speciesRoot.getMemberStack(individual, speciesRoot.getType(input)!!)
+	}
+
+	override fun getRecipeOutput(p: EntityPlayer, i: ItemStack, c: List<ItemStack>) = getRecipeOutput(i)
+
+	fun fakeRecipe(central: ItemStack) = object : InfusionRecipe(
+			research, null, instability, aspects, Ingredient.EMPTY, *components.toArray()
+	) {
+		override fun getRecipeOutput() = this@GeneticInfusionRecipe.getRecipeOutput(central)
+	}
+}

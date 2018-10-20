@@ -191,3 +191,4 @@ gradle-app.setting
 
 
 # End of https://www.gitignore.io/api/gradle,kotlin,eclipse,forgegradle,intellij+all
+classes/

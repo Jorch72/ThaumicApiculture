@@ -80,10 +80,17 @@ research.FORESTERINFUSION.text.stage.2=By infusing armor with woven silk, I can 
 research.MAGICAPIARY.title=Infusing Apiary
 research.MAGICAPIARY.text.stage.1=Until now, I've focused my efforts on producing a variety of frames to be installed in bee housings. The results are promising, but I think it's time to take up a more ambitious goal.<BR>My successes with imbued and infused frames have proven that essentia, under the right conditions, can alter the behavior of bees and their interaction with the environment. Why not skip the intermediate step entirely and feed essentia directly to the housing?<BR>I believe that a modified essentia transfuser and specialized enclosure will be necessary for this to work: Essentia is somewhat difficult to handle, even when you're not pouring it into a swarm of bees.
 
+research.GENEREVELATION.title=Genetic revelation
+research.GENEREVELATION.text.stage.1=My previous research has opened my eyes to the underlying connections between thaumaturgy and apiculture. The genes of bees are not unlike aspects on other items, and their behavior can also be manipulated through vis and essentia.<BR>So far, I've been delivering these effects indirectly, using specialized frames. I think it's time I tried taking a more direct approach.
+
+research.BEEINFUSION.title=Bee Infusion
+research.BEEINFUSION.text.stage.1=Essentia can have a potent effect on bees when applied to frames, so it's only logical that I should be able to apply it to the bees directly. The results should be interesting, if nothing else.
+research.BEEINFUSION.text.stage.2=Infusing bees is proving to be somewhat trickier than I originally hoped. Essentia is very volatile, and even though infusion allows it to be applied more safely, the bees still do not survive the process.
+
 # THEORYCRAFTING
 
 thaumicapiculture.card.observebees.name=Observe Bees
 thaumicapiculture.card.observebees.text=You carefully observe the behavior of the bees, noting any patterns in their interactions with the environment. Gain %d-%d progress in Thaumic Apiculture.
 
 thaumicapiculture.card.analyzebees.name=Analyze Bees
-thaumicapiculture.card.analyzebees.text=You analyze the genetic structure of the bees, searching for any relation to thaumaturgy. Gain %d-%d progress in Thaumic Apiculture and a bonus draw.
+thaumicapiculture.card.analyzebees.text=You analyze the genetic structure of the bees, searching for connections to thaumaturgy. Gain %d-%d progress in Thaumic Apiculture and a bonus draw.
