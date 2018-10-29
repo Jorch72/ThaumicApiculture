@@ -16,6 +16,8 @@ import net.minecraftforge.common.util.RecipeMatcher
 import net.minecraftforge.event.AttachCapabilitiesEvent
 import net.minecraftforge.event.entity.player.ItemTooltipEvent
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent
+import net.minecraftforge.fml.relauncher.Side
+import net.minecraftforge.fml.relauncher.SideOnly
 import thaumcraft.api.aspects.AspectList
 import thaumcraft.api.capabilities.ThaumcraftCapabilities
 import thaumcraft.api.crafting.InfusionRecipe
@@ -40,6 +42,7 @@ class CustomInfusionEnchantRecipe(
 	fun ItemStack.applyEnchant() = apply { setTagInfo("infusionenchant.$name", NBTTagByte(1)) }
 
 	@SubscribeEvent
+	@SideOnly(Side.CLIENT)
 	fun onTooltipEvent(e: ItemTooltipEvent) {
 		if (e.itemStack.hasEnchant()) e.toolTip.add(1, "§6" + I18n.format("tooltip.$MODID.$name"))
 	}

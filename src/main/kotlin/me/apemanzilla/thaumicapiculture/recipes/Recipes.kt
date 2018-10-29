@@ -135,7 +135,7 @@ object Recipes {
 				"spectacle_infusion", "FORESTERINFUSION@2", 1, AspectList().add(ORDER, 25).add(SENSES, 25),
 				ArboricultureCapabilities.ARMOR_NATURALIST,
 				ItemStack(ModuleCore.getItems().spectacles), ItemStack(Items.SLIME_BALL)
-		) { stack -> (stack.item as? ItemArmor)?.equipmentSlot == EntityEquipmentSlot.HEAD }
+		) { stack -> (stack.item as? ItemArmor)?.armorType == EntityEquipmentSlot.HEAD }
 
 		addInfusionCraftingRecipe(ResourceLocation(MODID, spectacleInfusion.name), spectacleInfusion)
 		addFakeCraftingRecipe(ResourceLocation(MODID, spectacleInfusion.name + "_fake"), spectacleInfusion.fakeRecipe(ItemStack(Items.DIAMOND_HELMET)))
